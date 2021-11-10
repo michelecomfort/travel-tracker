@@ -15,7 +15,8 @@ const loginButton = document.querySelector('#login-button')
 
 const retrieveUser = () => {
   let loginID = userName.value.split('').splice(8, 2).join('')
-  console.log(loginName)
+  console.log(`travelers/${loginID}`)
+
 
 }
 loginButton.addEventListener('click', retrieveUser)
