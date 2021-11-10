@@ -22,7 +22,7 @@ describe('User', function() {
   })
 
   it('should have single user data', function() {
-    assert.equal(user1.userID, 1)
+    assert.equal(user1.id, 1)
     assert.equal(user1.name, 'Michele Comfort')
     assert.equal(user1.travelerType, 'foodie')
   })
@@ -30,4 +30,17 @@ describe('User', function() {
   it('should return the users first name', function() {
     assert.equal(user2.returnFirstName(), 'Trent');
   })
+
+  // it('should be able to have past trips', function() {
+  //   assert.equal(user1.pastTrips, [{
+  //       'id': 10,
+  //       'userID': 1,
+  //       'destinationID': 4,
+  //       'travelers': 2,
+  //       'date': '2018/10/10',
+  //       'duration': 5,
+  //       'status': 'approved',
+  //       'suggestActivities': []
+  //     }])
+  // })
 })
