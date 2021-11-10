@@ -9,3 +9,13 @@ import './images/turing-logo.png'
 
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
+const userName = document.querySelector('#username')
+const loginButton = document.querySelector('#login-button')
+
+const retrieveUser = () => {
+  let loginID = userName.value.split('').splice(8, 2).join('')
+  console.log(loginName)
+
+}
+loginButton.addEventListener('click', retrieveUser)
