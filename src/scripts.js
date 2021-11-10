@@ -8,4 +8,21 @@ import './css/base.scss';
 import './images/turing-logo.png'
 
 
-console.log('This is the JavaScript entry file - your code begins here.');
+import { fetchData, } from './fetch'
+import Session from './Session'
+
+
+const retrieveAllData = () => {
+  Promise.all([fetchData('travelers', 'id'), fetchData('trips'), fetchData('destinations')]).then(data => {
+    parseData(data)
+    renderDom(session)
+  }).catch(error => {
+    console.log(error)
+  })
+}
+
+const parseData = () => {
+  session.retrieveUser(data[0])
+  session.createTripsStorage(data[1])
+  session.createDestinationsStorage(data[2])
+}
