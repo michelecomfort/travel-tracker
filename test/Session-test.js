@@ -2,10 +2,12 @@ import { traveler, trips, destinations } from '../src/sample-data'
 import { assert } from 'chai'
 import Session from '../src/Session'
 import User from '../src/User'
+import Trips from '../src/Trips'
 
 describe('Session', function() {
   let user1
   let session
+  let trip
   let tripsData
   // let userTrips
   // let userTrip1
@@ -14,7 +16,8 @@ describe('Session', function() {
   // let trips
 
   beforeEach(function () {
-    session = new Session()
+    trip = new Trips(tripsData)
+    session = new Session(tripsData)
     user1 = traveler[0]
     tripsData = [{
       'id': 10,
@@ -69,10 +72,13 @@ describe('Session', function() {
     assert.equal(session.isLoggedIn, false)
   })
 
-  // it('should store all user trips', function() {
-  //   assert.deepEqual(session.allTripsData, tripsData)
-  // })
+  it('should have a method to store all user trips', function() {
+    assert.deepEqual(session.storeAllTripData(tripsData), tripsData)
+  })
 
+  it('should have a method to create a new instance of Trips', function() {
+    assert.equal(session.createTripsStorage(tripsData), Trips)
+  })
 
   // it('should be able to have past trips', function() {
   //   assert.equal(session.pastTrips(user1), [{
