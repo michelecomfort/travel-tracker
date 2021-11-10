@@ -31,16 +31,4 @@ describe('User', function() {
     assert.equal(user2.returnFirstName(), 'Trent');
   })
 
-  // it('should be able to have past trips', function() {
-  //   assert.equal(user1.pastTrips, [{
-  //       'id': 10,
-  //       'userID': 1,
-  //       'destinationID': 4,
-  //       'travelers': 2,
-  //       'date': '2018/10/10',
-  //       'duration': 5,
-  //       'status': 'approved',
-  //       'suggestActivities': []
-  //     }])
-  // })
 })

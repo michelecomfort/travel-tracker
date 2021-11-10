@@ -2,9 +2,8 @@ import User from '../src/User'
 import Trips from '../src/Trips'
 
 export default class Session {
-  constructor(userData, tripsData) {
+  constructor(userData, tripsData, destinationData) {
     this.isLoggedIn = false
-    this.allTripsData = []
     this.user;
   }
 
@@ -12,15 +11,9 @@ export default class Session {
     return this.user = new User({id: user.id, name: user.name, travelerType: user.travelerType})
   }
 
-  storeAllTripData(trips) {
-    trips.forEach(trip => {
-      this.allTripsData.push(trip)
-    })
-    return this.allTripsData
-  }
-
-  createTripsStorage(trips) {
-    return trips = new Trips(trips)
+  createTripsStorage(tripsData) {
+    let trips = new Trips(tripsData)
+    return trips
   }
 
 }

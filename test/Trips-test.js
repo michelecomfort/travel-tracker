@@ -54,16 +54,7 @@ describe('Trips', function() {
     assert.instanceOf(trip1, Trips)
   })
 
-  it('should have a method to store all user trips', function() {
-    assert.deepEqual(trip.storeAllTripData(tripsData), tripsData)
+  it('should retrieve all of a single user\'s trips', function() {
+    assert.equal(trip1.retrieveAllUserTrips(1), tripsData)
   })
 })
-  // it('should have single user data', function() {
-  //   assert.equal(user1.id, 1)
-  //   assert.equal(user1.name, 'Michele Comfort')
-  //   assert.equal(user1.travelerType, 'foodie')
-  // })
-  //
-  // it('should return the users first name', function() {
-  //   assert.equal(user2.returnFirstName(), 'Trent');
-  // })

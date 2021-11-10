@@ -9,11 +9,6 @@ describe('Session', function() {
   let session
   let trip
   let tripsData
-  // let userTrips
-  // let userTrip1
-  // let userTrip2
-  // let userTrip3
-  // let trips
 
   beforeEach(function () {
     trip = new Trips(tripsData)
@@ -50,10 +45,6 @@ describe('Session', function() {
       'suggestActivities': []
     },]
 
-    // userTrips
-    //
-    // userTrips = []
-
   })
 
   it('should be a function', function() {
@@ -72,24 +63,9 @@ describe('Session', function() {
     assert.equal(session.isLoggedIn, false)
   })
 
-  it('should have a method to store all user trips', function() {
-    assert.deepEqual(session.storeAllTripData(tripsData), tripsData)
-  })
-
   it('should have a method to create a new instance of Trips', function() {
-    assert.equal(session.createTripsStorage(tripsData), Trips)
+    assert.instanceOf(session.createTripsStorage(tripsData), Trips)
   })
 
-  // it('should be able to have past trips', function() {
-  //   assert.equal(session.pastTrips(user1), [{
-  //       'id': 10,
-  //       'userID': 1,
-  //       'destinationID': 4,
-  //       'travelers': 2,
-  //       'date': '2018/10/10',
-  //       'duration': 5,
-  //       'status': 'approved',
-  //       'suggestActivities': []
-  //     }])
-  // })
+
 })

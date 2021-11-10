@@ -1,13 +1,15 @@
 
 export default class Trips {
   constructor(allTrips) {
-    this.allTrips = []
+    this.allTripsData = allTrips
+    console.log('yoyo',allTrips)
+  console.log('here2',this.allTripsData)
   }
 
-  storeAllTripData(allTrips) {
-    allTrips.forEach(trip => {
-      this.allTrips.push(trip)
+  retrieveAllUserTrips(id) {
+    const result =this.allTripsData.filter(trip => {
+    return  trip.userID === id
     })
-    return this.allTrips
+    return result
   }
 }
