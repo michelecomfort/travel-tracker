@@ -8,11 +8,13 @@ export default class Session {
   }
 
   retrieveUser(user) {
+    console.log(user)
     return this.user = new User({id: user.id, name: user.name, travelerType: user.travelerType})
   }
 
   createTripsStorage(tripsData) {
-    let trips = new Trips(tripsData)
+
+    let trips = new Trips(tripsData.trips)
     return trips
   }
 

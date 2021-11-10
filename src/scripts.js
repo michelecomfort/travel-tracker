@@ -9,30 +9,34 @@ import './images/turing-logo.png'
 
 
 
-import { fetchData, } from './fetch'
+import { fetchUserData, fetchData, } from './fetch'
 import Session from './Session'
 
+const session = new Session()
 const userName = document.querySelector('#username')
 const loginButton = document.querySelector('#login-button')
 
 const retrieveUser = () => {
   let loginID = userName.value.split('').splice(8, 2).join('')
-  console.log(loginName)
+  retrieveAllData(loginID)
 
 }
 loginButton.addEventListener('click', retrieveUser)
 
-const retrieveAllData = () => {
-  Promise.all([fetchData('travelers', 'id'), fetchData('trips'), fetchData('destinations')]).then(data => {
+const retrieveAllData = (id) => {
+
+
+  Promise.all([fetchUserData('travelers', id), fetchData('trips'), fetchData('destinations')]).then(data => {
+    console.log('here')
     parseData(data)
-    renderDom(session)
+    // renderDom(session)
   }).catch(error => {
     console.log(error)
   })
 }
 
-const parseData = () => {
+const parseData = (data) => {
   session.retrieveUser(data[0])
   session.createTripsStorage(data[1])
-  session.createDestinationsStorage(data[2])
+  // session.createDestinationsStorage(data[2])
 }

@@ -1,6 +1,11 @@
-const fetchData = (dataset,id) => {
+const fetchUserData = (dataset, id) => {
   return fetch(`http://localhost:3001/api/v1/${dataset}/${id}`)
     .then(result => result.json())
+}
+
+const fetchData = (dataset) => {
+return fetch(`http://localhost:3001/api/v1/${dataset}`)
+  .then(result => result.json())
 }
 
 const postData = (data) => {
@@ -17,6 +22,7 @@ const postData = (data) => {
 }
 
 export {
+  fetchUserData,
   fetchData,
   postData
 }
