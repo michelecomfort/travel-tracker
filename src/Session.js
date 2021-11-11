@@ -1,10 +1,13 @@
 import User from '../src/User'
 import Trips from '../src/Trips'
+import Destinations from '../src/Destinations'
 
 export default class Session {
-  constructor(userData, tripsData, destinationData) {
-    this.isLoggedIn = false
-    this.user;
+  constructor() {
+    this.user
+    this.allTripsData
+    this.userTrips
+    this.destinationData
   }
 
   retrieveUser(user) {
@@ -13,9 +16,14 @@ export default class Session {
   }
 
   createTripsStorage(tripsData) {
+    let trips = tripsData.filter(trip => {
+    return  trip.userID === this.user.id
+  })
+    this.userTrips = new Trips(trips)
+}
 
-    let trips = new Trips(tripsData.trips)
-    return trips
+  createDestinationsStorage(destinationData) {
+    return new Destinations(destinationData)
   }
 
 }

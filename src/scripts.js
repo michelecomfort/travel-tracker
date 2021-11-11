@@ -24,10 +24,7 @@ const retrieveUser = () => {
 loginButton.addEventListener('click', retrieveUser)
 
 const retrieveAllData = (id) => {
-
-
-  Promise.all([fetchUserData('travelers', id), fetchData('trips'), fetchData('destinations')]).then(data => {
-    console.log('here')
+  Promise.all([fetchUserData(id), fetchData('trips'), fetchData('destinations')]).then(data => {
     parseData(data)
     // renderDom(session)
   }).catch(error => {
@@ -37,6 +34,6 @@ const retrieveAllData = (id) => {
 
 const parseData = (data) => {
   session.retrieveUser(data[0])
-  session.createTripsStorage(data[1])
-  // session.createDestinationsStorage(data[2])
+  session.createTripsStorage(data[1].trips)
+  session.createDestinationsStorage(data[2].destinations)
 }

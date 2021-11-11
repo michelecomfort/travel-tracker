@@ -1,5 +1,5 @@
-const fetchUserData = (dataset, id) => {
-  return fetch(`http://localhost:3001/api/v1/${dataset}/${id}`)
+const fetchUserData = (id) => {
+  return fetch(`http://localhost:3001/api/v1/travelers/${id}`)
     .then(result => result.json())
 }
 
