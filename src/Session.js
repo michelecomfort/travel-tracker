@@ -4,6 +4,7 @@ import Destinations from '../src/Destinations'
 
 export default class Session {
   constructor() {
+    this.isLoggedIn = false;
     this.user
     this.allTripsData
     this.userTrips
@@ -12,7 +13,8 @@ export default class Session {
 
   retrieveUser(user) {
     console.log(user)
-    return this.user = new User({id: user.id, name: user.name, travelerType: user.travelerType})
+    this.user = new User({id: user.id, name: user.name, travelerType: user.travelerType})
+    return this.user
   }
 
   createTripsStorage(tripsData) {
@@ -20,6 +22,7 @@ export default class Session {
     return  trip.userID === this.user.id
   })
     this.userTrips = new Trips(trips)
+    return this.userTrips
 }
 
   createDestinationsStorage(destinationData) {

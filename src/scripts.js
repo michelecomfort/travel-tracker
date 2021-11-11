@@ -5,7 +5,7 @@
 import './css/base.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+import './images/suitcase.png'
 
 
 
@@ -13,7 +13,7 @@ import { fetchUserData, fetchData, } from './fetch'
 import Session from './Session'
 
 const session = new Session()
-const userName = document.querySelector('#username')
+const userName = document.querySelector('#userName')
 const loginButton = document.querySelector('#login-button')
 
 const retrieveUser = () => {

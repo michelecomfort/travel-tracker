@@ -2,9 +2,38 @@
 @import '_variables';
 
 body {
-  background: $primary-background;
+  // background: $primary-background;
 }
 
 * {
-  border: 1px solid white;
+  border: 1px solid gray;
+  margin: 0;
+}
+
+header {
+  background-image: url('../images/suitcase.png');
+  // background-attachment: fixed;
+  background-position: top;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 400px;
+
+}
+
+.travel-title {
+  display: flex;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-name {
+
+}
+
+
+.trips-buttons {
+  // display: flex;
 }

@@ -54,7 +54,7 @@ describe('Session', function() {
   it('should be an instance of Session', function() {
     assert.instanceOf(session, Session)
   })
-  //
+
   it('should have a method to create a new user', function() {
     assert.deepEqual(session.retrieveUser(user1), user1)
   })
@@ -64,6 +64,7 @@ describe('Session', function() {
   })
 
   it('should have a method to create a new instance of Trips', function() {
+    session.retrieveUser(user1)
     assert.instanceOf(session.createTripsStorage(tripsData), Trips)
   })
 
