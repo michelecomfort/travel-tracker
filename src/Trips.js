@@ -1,15 +1,19 @@
 
 export default class Trips {
-  constructor(allTrips) {
-    this.allTripsData = allTrips
-    console.log('yoyo',allTrips)
-  console.log('here2',this.allTripsData)
+  constructor(trips) {
+    this.userTripData= trips
+    this.approvedTrips = []
+    this.pendingTrips = []
   }
 
-  retrieveAllUserTrips(id) {
-    const result =this.allTripsData.filter(trip => {
-    return  trip.userID === id
+  getPendingTrips() {
+    this.userTripsData.forEach(trip => {
+      if (trip.status === 'approved') {
+        this.approvedTrips.push(trip)
+      } else {
+        this.pendingTrips.push(trip)
+      }
     })
-    return result
   }
+
 }
