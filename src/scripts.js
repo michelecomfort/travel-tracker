@@ -19,13 +19,15 @@ const loginButton = document.querySelector('#login-button')
 const pastTrips = document.querySelector('#pastTrips')
 const upcomingTrips = document.querySelector('#upcomingTrips')
 const pendingTrips = document.querySelector('#pendingTrips')
-const tripType = document.querySelector('#tripType')
+const tripView = document.querySelector('#tripView')
+const userMenu = document.querySelector('#userMenu')
 const retrieveUser = () => {
   let loginID = userName.value.split('').splice(8, 2).join('')
   retrieveAllData(loginID)
 
 }
 loginButton.addEventListener('click', retrieveUser)
+
 
 const retrieveAllData = (id) => {
   Promise.all([fetchUserData(id), fetchData('trips'), fetchData('destinations')]).then(data => {
@@ -43,12 +45,33 @@ const parseData = (data) => {
   //below functions will move to domManip on click events
   session.getTotalDollarSpentThisYear()
   session.getTripCost('Cartagena, Colombia', 7, 2)
-  session.getPastTrips(todayDate)
-  session.getUpcomingTrips(todayDate)
+  // session.getPastTrips(todayDate)
+  changeFormView()
+  // session.getUpcomingTrips(todayDate)
   // toggleView()
   // renderDom(data)
 }
 
+const changeFormView = () => {
+  switch (tripView.value) {
+  case 'past':
+    session.getPastTrips(todayDate)
+    break;
+  case 'upcoming':
+    session.getUpcomingTrips(todayDate)
+
+    break;
+  case 'pending':
+    session.getPendingTrips()
+    break;
+  //   case 'expenses.':
+  //
+  //     break;
+  default:
+    console.log('something went wrong');
+    break;
+  }
+};
 // const renderDom = (session) => {
 //   populateMyTrips()
 //
@@ -67,3 +90,4 @@ const parseData = (data) => {
 //
 //   }
 // }
+userMenu.addEventListener('change', changeFormView)

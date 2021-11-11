@@ -18,12 +18,13 @@
           <input id='password'class='password'type="text" name="password" value="" required>
           <button id='login-button' type="button" name="button">login</button>
         </section>
-        <form class="trips-view" action="index.html" method="post">
+        <form class="trips-view" action="index.html" method="post" id='userMenu'>
           <label for="trip-type"></label>
-          <select class="trip-type" name="trip-type" id='tripType'>
+          <select class="trip-type" name="trip-type" id='tripView'>
             <option value="past" id='pastTrips'>past trips.</option>
             <option value="upcoming" id='upcomingTrips'>upcoming trips.</option>
             <option value="pending" id='pendingTrips'>pending trips.</option>
+            <option value="pending" id='pendingTrips'>expenses.</option>
           </select>
         </form>
 
