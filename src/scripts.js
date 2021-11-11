@@ -13,6 +13,7 @@ import { fetchUserData, fetchData, postData} from './fetch'
 import Session from './Session'
 
 const session = new Session()
+const todayDate = new Date().toISOString().slice(0, 10).replaceAll('-', '/')
 const userName = document.querySelector('#userName')
 const loginButton = document.querySelector('#login-button')
 const pastTrips = document.querySelector('#pastTrips')
@@ -41,8 +42,9 @@ const parseData = (data) => {
   session.createDestinationsStorage(data[2].destinations)
   //below functions will move to domManip on click events
   session.getTotalDollarSpentThisYear()
-  session.getEstimate('Cartagena, Colombia', 7, 2)
-  session.getPendingTrips()
+  session.getTripCost('Cartagena, Colombia', 7, 2)
+  session.getPastTrips(todayDate)
+  session.getUpcomingTrips(todayDate)
   // toggleView()
   // renderDom(data)
 }

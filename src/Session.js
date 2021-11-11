@@ -49,7 +49,7 @@ export default class Session {
     return result
   }
 
-  getEstimate(location, duration, guests) {
+  getTripCost(location, duration, guests) {
     let result = this.destinationData.reduce((acc, destination) => {
       if (destination.destination === location){
       acc += (destination.estimatedLodgingCostPerDay * duration) + (destination.estimatedFlightCostPerPerson * guests)
@@ -58,7 +58,28 @@ export default class Session {
     }, 0)
     let agentFee = result * .1
     result += agentFee
-    console.log(result)
+    return result
+  }
+
+  getPastTrips(todayDate) {
+    let date1 = new Date(todayDate)
+    let result = this.userTripsData.filter(trip => {
+      let date2 = new Date(trip.date)
+      if (date2 < date1) {
+        return trip
+      }
+    })
+    return result
+  }
+
+  getUpcomingTrips(todayDate) {
+    let date1 = new Date(todayDate)
+    let result = this.userTripsData.filter(trip => {
+      let date2 = new Date(trip.date)
+      if (date2 > date1) {
+        return trip
+      }
+    })
     return result
   }
 
