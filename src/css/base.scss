@@ -3,13 +3,14 @@
 
 body {
   // background: $primary-background;
+  font-family: 'Comfortaa';
 }
 
 * {
   border: 1px solid gray;
   margin: 0;
 }
-
+//Header
 header {
   background-image: url('../images/suitcase.png');
   // background-attachment: fixed;
@@ -22,18 +23,47 @@ header {
 
 .travel-title {
   display: flex;
+  font-size: 50px;
+  margin-left: 8%;
+  margin-top: 5%;
 }
 
 nav {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
+.login {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  margin-right: 20%;
+  margin-top: 2%;
+}
 .user-name {
 
 }
 
+.trips-view {
+  display: flex;
+  height: 40px;
+  margin-right: 4%;
+  margin-top: 2%;
+}
 
-.trips-buttons {
-  // display: flex;
+.book-trip {
+  display: flex;
+  margin-top: 14%;
+  margin-left: 2%;
+}
+
+//------------> Bottom section
+
+.bottom-heading {
+  text-align: center;
+}
+
+.hidden {
+  display:none;
 }

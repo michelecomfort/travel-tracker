@@ -9,13 +9,16 @@ import './images/suitcase.png'
 
 
 
-import { fetchUserData, fetchData, } from './fetch'
+import { fetchUserData, fetchData, postData} from './fetch'
 import Session from './Session'
 
 const session = new Session()
 const userName = document.querySelector('#userName')
 const loginButton = document.querySelector('#login-button')
-
+const pastTrips = document.querySelector('#pastTrips')
+const upcomingTrips = document.querySelector('#upcomingTrips')
+const pendingTrips = document.querySelector('#pendingTrips')
+const tripType = document.querySelector('#tripType')
 const retrieveUser = () => {
   let loginID = userName.value.split('').splice(8, 2).join('')
   retrieveAllData(loginID)
@@ -36,4 +39,29 @@ const parseData = (data) => {
   session.retrieveUser(data[0])
   session.createTripsStorage(data[1].trips)
   session.createDestinationsStorage(data[2].destinations)
+  //below functions will move to domManip on click events
+  session.getTotalDollarSpentThisYear()
+  session.getEstimate('Cartagena, Colombia', 7, 2)
+  session.getPendingTrips()
+  // toggleView()
+  // renderDom(data)
 }
+
+// const renderDom = (session) => {
+//   populateMyTrips()
+//
+//
+//
+// }
+
+// const populateMyTrips = (data)
+// const toggleView = (element) => {
+//   element.className.toggle('hidden')
+// }
+
+// const changeTripFormView = () => {
+//   switch (tripType.value) {
+//     case 'past trips':
+//
+//   }
+// }
