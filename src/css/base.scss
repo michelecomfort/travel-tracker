@@ -1,13 +1,16 @@
 /* This is an example of how to import a partial scss file*/
 @import '_variables';
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
 
 body {
-  // background: $primary-background;
   font-family: 'Comfortaa';
+  // overflow: hidden;
 }
 
 * {
-  border: 1px solid gray;
+  // border: 1px solid gray;
   margin: 0;
 }
 //Header
@@ -17,9 +20,52 @@ header {
   background-position: top;
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 400px;
+  height: 395px;
 
 }
+
+// .img-wrap {
+//   position: relative;
+//   overflow: hidden;
+// }
+img {
+  max-height: 100%;
+  max-width: 80%;
+  min-height: 100%;
+  min-width: 80%;
+  margin-left: 18%;
+
+}
+
+p {
+  text-align: center;
+}
+
+// img:hover {
+//   opacity: 0.4;
+//   transition:opacity 1s;
+// }
+//
+//
+// .img-description {
+//
+//   // display: inline-block;
+//   vertical-align: middle;
+//   position: absolute;
+//   // visibility: hidden;
+//   opacity: 0;
+// }
+//
+// .img-wrap p {
+//   z-index: -1;
+//   display: inline-block;
+// }
+//
+// .img-wrap:hover .img-description {
+//   visibility: visible;
+//   opacity: 1;
+//   z-index: 4;
+// }
 
 .travel-title {
   display: flex;
@@ -32,6 +78,10 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+h2 {
+  padding: 1%;
 }
 
 .login {
@@ -53,15 +103,47 @@ nav {
 }
 
 .book-trip {
+  background-color: #D3EFE9;
+
   display: flex;
-  margin-top: 14%;
+  margin-top: 10%;
   margin-left: 2%;
+  padding: 2%;
+  width: 50%;
+  border-radius: 30px;
+}
+
+input {
+  border: none;
+  border-radius: 6px;
+  margin: 3px;
+  width: 60%;
+  text-align: center;
+}
+
+.book-button {
+  background-color: #FE395C;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  margin-left: 4%;
+  width: 20%;
+  height: 50%;
 }
 
 //------------> Bottom section
 
 .bottom-heading {
   text-align: center;
+}
+
+.destinations {
+  height: 42%;
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // padding-top: 15px;
 }
 
 .hidden {

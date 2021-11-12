@@ -4,8 +4,37 @@
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 
+import Glide from '@glidejs/glide';
+import { Breakpoints } from '@glidejs/glide/dist/glide.modular.esm';
+// import Glide, { Breakpoints } from '@glidejs/glide/dist/glide.modular.esm';
+
+
+new Glide('.glide', {
+  type: 'carousel',
+  startAt: 1,
+  perView: 3,
+  focusAt: 'center',
+  gap: 20,
+  hoverpause: true,
+  keyboard: true,
+  breakpoints: {
+  800: {
+    perView: 2
+  }
+},
+
+}).mount()
+
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/suitcase.png'
+import './images/Cape-Town-South-Africa.png'
+import './images/Madrid-Spain.png'
+import './images/Manila-Philippines.png'
+import './images/Kathmandu-Nepal.png'
+import './images/Reykyavik-Iceland.png'
+import './images/Wellington-NewZealand.png'
+import './images/Bangkok-Thailand.png'
+
 
 
 
