@@ -15,13 +15,13 @@
         <h1 class='travel-title'>travel.</h1>
         <section class='login '>
           <input id='userName' class='user-name'type="text" name="username" value="" required>
-          <input id='password'class='password'type="text" name="password" value="" required>
+          <input id='password'class='password'type="password" name="password" value="" required>
           <button id='login-button' type="button" name="button">login</button>
         </section>
         <form class="trips-view" action="index.html" method="post" id='userMenu'>
           <label for="trip-type"></label>
           <select class="trip-type" name="trip-type" id='tripView'>
-            <option value="past" id='pastTrips'>my account.</option>
+            <option value="my-account" id='myAccount'>my account.</option>
             <option value="past" id='pastTrips'>past trips.</option>
             <option value="upcoming" id='upcomingTrips'>upcoming trips.</option>
             <option value="pending" id='pendingTrips'>pending trips.</option>
@@ -32,7 +32,9 @@
 
     </nav>
     <section class='book-trip'>
-      <input type="text" name="destination" value="destination">
+      <input placeholder='destination' list="browsers" name="myBrowser" /></label>
+        <datalist class='destination-dropdown' id="browsers">
+        </datalist>
       <input placeholder="start date" class="form-control" type="text" onfocus="(this.type='date') (this.min=new Date().toISOString().split('T')[0])" onblur="(this.type='text')" id="startDate">
       <input placeholder="end date" class="form-control" type="text" onfocus="(this.type='date') " onblur="(this.type='text')" id="date">
       <input type="number" name="guests" min=1 value="" placeholder="guests">
@@ -45,11 +47,11 @@
     <main>
       <section class='bottom-section'>
         <section class='bottom-heading'>
-          <h2 class='where-next-heading'>where to next?</h2>
+          <h2 class='bottom-heading' id='bottomHeading'>where to next?</h2>
         </section>
       </section>
-      <section class='destinations'>
-        <div class="glide">
+      <section class='destinations' id='destinations'>
+        <div class="glide hidden">
           <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
               <!-- <section class='destination-suggestions'> -->
