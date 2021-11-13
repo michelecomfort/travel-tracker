@@ -28,18 +28,20 @@
             <option value="pending" id='pendingTrips'>expenses.</option>
           </select>
         </form>
-
-
     </nav>
+    <section class='get-estimate' id='getEstimate'>
+      <p>Your estimate cost would be $1000</p>
+    </section>
     <section class='book-trip'>
-      <input placeholder='destination' list="browsers" name="myBrowser" /></label>
-        <datalist class='destination-dropdown' id="browsers">
+      <input placeholder='destination' list="browsers" name="myBrowser" class='destination-dropdown'>
+        <datalist id="browsers">
         </datalist>
-      <input placeholder="start date" class="form-control" type="text" onfocus="(this.type='date') (this.min=new Date().toISOString().split('T')[0])" onblur="(this.type='text')" id="startDate">
-      <input placeholder="end date" class="form-control" type="text" onfocus="(this.type='date') " onblur="(this.type='text')" id="date">
-      <input type="number" name="guests" min=1 value="" placeholder="guests">
-      <!-- <button type="submit" name="button">get estimate.</button> -->
-      <button type="submit" name="button" class='book-button'>book it.</button>
+      <input placeholder="start date" class="form-control start-date" type="text" onfocus="(this.type='date') (this.min=new Date().toISOString().split('T')[0])" onblur="(this.type='text')" id="startDate">
+      <!-- <input placeholder="end date" class="form-control" type="text" onfocus="(this.type='date') " onblur="(this.type='text')" id="date"> -->
+      <input type="number" name="guests" min=1 value="" placeholder="days" class='days' id='numDays'>
+      <input type="number" name="guests" min=1 value="" placeholder="guests" class='guests'id='guests'>
+      <button type="submit" name="button" class='estimate-button button'id='estimateButton'>get estimate.</button>
+      <button type="submit" name="button" class='book-button hidden'>book it.</button>
 
     </section>
 

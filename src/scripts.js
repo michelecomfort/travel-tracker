@@ -55,6 +55,9 @@ const startDate = document.querySelector('#startDate')
 const bottomHeading = document.querySelector('#bottomHeading')
 const destinationsSection = document.querySelector('#destinations')
 const browsers = document.querySelector('#browsers')
+const getEstimate = document.querySelector('#getEstimate')
+const estimateButton = document.querySelector('#estimateButton')
+// const guests = document.querySelector('#guests')
 
 
 
@@ -168,6 +171,10 @@ const addDestinationSearch = () => {
     <option value="${dest.destination}">`
   })
 }
+
+// const showEstimate = () => {
+//   if (browsers.value && startDate.value && date.value && guests.value)
+// }
 // const renderDom = (session) => {
 //   populateMyTrips()
 //
@@ -181,5 +188,5 @@ const addDestinationSearch = () => {
 // }
 
 
-// browsers.addEventListener('change', addDestinationSearch)
+// estimateButton.addEventListener('click', showEstimate)
 userMenu.addEventListener('change', changeFormView)
