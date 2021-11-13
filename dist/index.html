@@ -15,7 +15,7 @@
         <h1 class='travel-title'>travel.</h1>
         <section class='login '>
           <input id='userName' class='user-name'type="text" name="username" value="" required>
-          <input id='password'class='password'type="text" name="password" value="" required>
+          <input id='password'class='password'type="password" name="password" value="" required>
           <button id='login-button' type="button" name="button">login</button>
         </section>
         <form class="trips-view" action="index.html" method="post" id='userMenu'>
@@ -32,7 +32,9 @@
 
     </nav>
     <section class='book-trip'>
-      <input type="text" name="destination" value="destination">
+      <input placeholder='destination' list="browsers" name="myBrowser" /></label>
+        <datalist class='destination-dropdown' id="browsers">
+        </datalist>
       <input placeholder="start date" class="form-control" type="text" onfocus="(this.type='date') (this.min=new Date().toISOString().split('T')[0])" onblur="(this.type='text')" id="startDate">
       <input placeholder="end date" class="form-control" type="text" onfocus="(this.type='date') " onblur="(this.type='text')" id="date">
       <input type="number" name="guests" min=1 value="" placeholder="guests">

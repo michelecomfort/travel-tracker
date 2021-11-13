@@ -90,8 +90,7 @@ export default class Session {
     let result = this.userTripsData.filter(trip => {
       return trip.status ==='pending'
     })
-    console.log(result)
-    return result
+      return result
   }
 
 }

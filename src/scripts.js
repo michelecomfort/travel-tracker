@@ -54,6 +54,7 @@ const userMenu = document.querySelector('#userMenu')
 const startDate = document.querySelector('#startDate')
 const bottomHeading = document.querySelector('#bottomHeading')
 const destinationsSection = document.querySelector('#destinations')
+const browsers = document.querySelector('#browsers')
 
 
 
@@ -62,6 +63,8 @@ const destinationsSection = document.querySelector('#destinations')
 const retrieveUser = () => {
   let loginID = userName.value.split('').splice(8, 2).join('')
   retrieveAllData(loginID)
+
+
 }
 loginButton.addEventListener('click', retrieveUser)
 
@@ -82,6 +85,7 @@ const parseData = (data) => {
   //below functions will move to domManip on click events
   session.getTotalDollarSpentThisYear()
   session.getTripCost('Cartagena, Colombia', 7, 2)
+  addDestinationSearch()
   // session.getPastTrips(todayDate)
   // changeFormView(session, todayDate)
   // displayPastTrips()
@@ -101,11 +105,11 @@ const changeFormView = () => {
     break;
   case 'upcoming':
     let upcoming = session.getUpcomingTrips(todayDate)
-    displayTrips(upcoming)
+    displayTrips(upcoming, tripView.value)
     break;
   case 'pending':
-    session.getPendingTrips()
-    displayPendingTrips()
+    let pending = session.getPendingTrips()
+    displayTrips(pending, tripView.value)
     break;
     // case 'expenses.':
     //
@@ -117,29 +121,30 @@ const changeFormView = () => {
 };
 
 const displayTrips = (trips, value) => {
-  bottomHeading.innerHTML =
-  '<h2>my ' + value + ' trips</h2>'
+  if (trips.length > 0) {
+    bottomHeading.innerHTML =
+    '<h2>my ' + value + ' trips</h2>'
 
-
-
-
-destinationsSection.innerHTML = ''
-  trips.forEach(trip => {
-    session.destinationData.forEach(dest => {
-      if (trip.destinationID === dest.id) {
-
-        destinationsSection.innerHTML += `
-        <section class='trips-display'>
+    destinationsSection.innerHTML = ''
+    trips.forEach(trip => {
+      session.destinationData.forEach(dest => {
+        if (trip.destinationID === dest.id) {
+          destinationsSection.innerHTML += `
+          <section class='trips-display'>
           <h4>${dest.destination}</h4>
           <p>${trip.date}</p>
-        </section>
-        `
-
-      }
+          </section>
+          `
+        }
+      })
     })
-
-  })
+  } else {
+    bottomHeading.innerHTML = '<p>You have no ' + value + ' trips at this time.</p>'
+    destinationsSection.innerHTML = ''
+  }
 }
+
+
 
 const displayUpcomingTrips = () => {
   bottomHeading.innerHTML = `
@@ -156,6 +161,13 @@ const displayPendingTrips = () => {
   destinationsSection.innerHTML = `
   `
 }
+
+const addDestinationSearch = () => {
+  session.destinationData.forEach(dest => {
+    browsers.innerHTML += `
+    <option value="${dest.destination}">`
+  })
+}
 // const renderDom = (session) => {
 //   populateMyTrips()
 //
@@ -169,5 +181,5 @@ const displayPendingTrips = () => {
 // }
 
 
-
+// browsers.addEventListener('change', addDestinationSearch)
 userMenu.addEventListener('change', changeFormView)
