@@ -39,6 +39,7 @@ import './images/Bangkok-Thailand.png'
 
 
 import { fetchUserData, fetchData, postData} from './fetch'
+// import { changeFormView, displayPastTrips, displayUpcomingTrips, displayPendingTrips } from './domManipulation'
 import Session from './Session'
 
 const session = new Session()
@@ -51,6 +52,9 @@ const pendingTrips = document.querySelector('#pendingTrips')
 const tripView = document.querySelector('#tripView')
 const userMenu = document.querySelector('#userMenu')
 const startDate = document.querySelector('#startDate')
+const bottomHeading = document.querySelector('#bottomHeading')
+const destinationsSection = document.querySelector('#destinations')
+
 
 
 
@@ -79,32 +83,79 @@ const parseData = (data) => {
   session.getTotalDollarSpentThisYear()
   session.getTripCost('Cartagena, Colombia', 7, 2)
   // session.getPastTrips(todayDate)
-  changeFormView()
+  // changeFormView(session, todayDate)
+  // displayPastTrips()
   // session.getUpcomingTrips(todayDate)
   // toggleView()
   // renderDom(data)
 }
 
+
+
 const changeFormView = () => {
   switch (tripView.value) {
   case 'past':
-    session.getPastTrips(todayDate)
+
+    let past = session.getPastTrips(todayDate)
+    displayTrips(past, tripView.value)
     break;
   case 'upcoming':
-    session.getUpcomingTrips(todayDate)
-
+    let upcoming = session.getUpcomingTrips(todayDate)
+    displayTrips(upcoming)
     break;
   case 'pending':
     session.getPendingTrips()
+    displayPendingTrips()
     break;
-  //   case 'expenses.':
-  //
-  //     break;
+    // case 'expenses.':
+    //
+    //   break;
   default:
     console.log('something went wrong');
     break;
   }
 };
+
+const displayTrips = (trips, value) => {
+  bottomHeading.innerHTML =
+  '<h2>my ' + value + ' trips</h2>'
+
+
+
+
+destinationsSection.innerHTML = ''
+  trips.forEach(trip => {
+    session.destinationData.forEach(dest => {
+      if (trip.destinationID === dest.id) {
+
+        destinationsSection.innerHTML += `
+        <section class='trips-display'>
+          <h4>${dest.destination}</h4>
+          <p>${trip.date}</p>
+        </section>
+        `
+
+      }
+    })
+
+  })
+}
+
+const displayUpcomingTrips = () => {
+  bottomHeading.innerHTML = `
+  <h2>my upcoming trips</h2>
+  `
+  destinationsSection.innerHTML = `
+  `
+}
+
+const displayPendingTrips = () => {
+  bottomHeading.innerHTML = `
+  <h2>my pending trips</h2>
+  `
+  destinationsSection.innerHTML = `
+  `
+}
 // const renderDom = (session) => {
 //   populateMyTrips()
 //
@@ -117,10 +168,6 @@ const changeFormView = () => {
 //   element.className.toggle('hidden')
 // }
 
-// const changeTripFormView = () => {
-//   switch (tripType.value) {
-//     case 'past trips':
-//
-//   }
-// }
+
+
 userMenu.addEventListener('change', changeFormView)

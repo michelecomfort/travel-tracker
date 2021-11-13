@@ -62,6 +62,7 @@ export default class Session {
   }
 
   getPastTrips(todayDate) {
+    console.log('here here')
     let date1 = new Date(todayDate)
     let result = this.userTripsData.filter(trip => {
       let date2 = new Date(trip.date)

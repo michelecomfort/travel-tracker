@@ -21,7 +21,7 @@
         <form class="trips-view" action="index.html" method="post" id='userMenu'>
           <label for="trip-type"></label>
           <select class="trip-type" name="trip-type" id='tripView'>
-            <option value="past" id='pastTrips'>my account.</option>
+            <option value="my-account" id='myAccount'>my account.</option>
             <option value="past" id='pastTrips'>past trips.</option>
             <option value="upcoming" id='upcomingTrips'>upcoming trips.</option>
             <option value="pending" id='pendingTrips'>pending trips.</option>
@@ -45,11 +45,11 @@
     <main>
       <section class='bottom-section'>
         <section class='bottom-heading'>
-          <h2 class='where-next-heading'>where to next?</h2>
+          <h2 class='bottom-heading' id='bottomHeading'>where to next?</h2>
         </section>
       </section>
-      <section class='destinations'>
-        <div class="glide">
+      <section class='destinations' id='destinations'>
+        <div class="glide hidden">
           <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
               <!-- <section class='destination-suggestions'> -->
