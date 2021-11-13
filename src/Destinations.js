@@ -3,5 +3,7 @@ export default class Destinations {
     this.destinations = destinationData
   }
 
-
+  // getEstimate(location, duration, guests) {
+  //
+  // }
 }

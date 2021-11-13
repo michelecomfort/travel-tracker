@@ -65,6 +65,7 @@ describe('Session', function() {
 
   it('should have a method to create a new instance of Trips', function() {
     session.retrieveUser(user1)
+    console.log(tripsData)
     assert.instanceOf(session.createTripsStorage(tripsData), Trips)
   })
 

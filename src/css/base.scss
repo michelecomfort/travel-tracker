@@ -1,39 +1,118 @@
 /* This is an example of how to import a partial scss file*/
 @import '_variables';
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
 
 body {
-  // background: $primary-background;
+  font-family: 'Comfortaa';
 }
 
 * {
-  border: 1px solid gray;
+  // border: 1px solid gray;
   margin: 0;
 }
-
+//Header
 header {
   background-image: url('../images/suitcase.png');
   // background-attachment: fixed;
   background-position: top;
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 400px;
+  height: 395px;
 
+}
+
+img {
+  max-height: 100%;
+  max-width: 80%;
+  min-height: 100%;
+  min-width: 80%;
+  margin-left: 18%;
+
+}
+
+p {
+  text-align: center;
 }
 
 .travel-title {
   display: flex;
+  font-size: 50px;
+  margin-left: 8%;
+  margin-top: 5%;
 }
 
 nav {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
+h2 {
+  padding: 1%;
+}
+
+.login {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  margin-right: 20%;
+  margin-top: 2%;
+}
 .user-name {
 
 }
 
+.trips-view {
+  display: flex;
+  height: 40px;
+  margin-right: 4%;
+  margin-top: 2%;
+}
 
-.trips-buttons {
-  // display: flex;
+.book-trip {
+  background-color: #D3EFE9;
+
+  display: flex;
+  margin-top: 10%;
+  margin-left: 2%;
+  padding: 2%;
+  width: 50%;
+  border-radius: 30px;
+}
+
+input {
+  border: none;
+  border-radius: 6px;
+  margin: 3px;
+  width: 60%;
+  text-align: center;
+}
+
+.book-button {
+  background-color: #FE395C;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  margin-left: 4%;
+  width: 20%;
+  height: 50%;
+}
+
+//------------> Bottom section
+
+.bottom-heading {
+  text-align: center;
+}
+
+.destinations {
+  height: 42%;
+  width: 95%;
+  display: flex;
+  justify-content: center;
+}
+
+.hidden {
+  display:none;
 }

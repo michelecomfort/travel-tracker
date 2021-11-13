@@ -5,46 +5,82 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="image" href="../images/suitcase.png">
-  <title>Webpack Starter Kit</title>
+  <title>travel.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Lato:wght@100;300;400;700&family=Merriweather&display=swap" rel="stylesheet">
 </head>
 <body>
   <main>
     <header>
-      <h1 class='travel-title'>travel.</h1>
-      <input id='userName' class='user-name'type="text" name="username" value="" required>
-      <input id='password'class='password'type="text" name="password" value="" required>
-      <button id='login-button' type="button" name="button">login</button>
-      <nav class='trips-buttons'>
-        <button type="button" name="button">past.</button>
-        <button type="button" name="button">present.</button>
-        <button type="button" name="button">future.</button>
-      </nav>
+      <nav class =top-nav>
+        <h1 class='travel-title'>travel.</h1>
+        <section class='login '>
+          <input id='userName' class='user-name'type="text" name="username" value="" required>
+          <input id='password'class='password'type="text" name="password" value="" required>
+          <button id='login-button' type="button" name="button">login</button>
+        </section>
+        <form class="trips-view" action="index.html" method="post" id='userMenu'>
+          <label for="trip-type"></label>
+          <select class="trip-type" name="trip-type" id='tripView'>
+            <option value="past" id='pastTrips'>my account.</option>
+            <option value="past" id='pastTrips'>past trips.</option>
+            <option value="upcoming" id='upcomingTrips'>upcoming trips.</option>
+            <option value="pending" id='pendingTrips'>pending trips.</option>
+            <option value="pending" id='pendingTrips'>expenses.</option>
+          </select>
+        </form>
+
+
+    </nav>
+    <section class='book-trip'>
+      <input type="text" name="destination" value="destination">
+      <input placeholder="start date" class="form-control" type="text" onfocus="(this.type='date') (this.min=new Date().toISOString().split('T')[0])" onblur="(this.type='text')" id="startDate">
+      <input placeholder="end date" class="form-control" type="text" onfocus="(this.type='date') " onblur="(this.type='text')" id="date">
+      <input type="number" name="guests" min=1 value="" placeholder="guests">
+      <!-- <button type="submit" name="button">get estimate.</button> -->
+      <button type="submit" name="button" class='book-button'>book it.</button>
+
+    </section>
+
     </header>
     <main>
-      <section>
-        <h2>where to next?</h2>
-      </section>
-      <section class='book-forms'>
-        <input type="date" name="" value="">
-        <input type="date" name="" value="">
-        <input type="text" name="" value="">
-        <input type="text" name="" value="">
+      <section class='bottom-section'>
+        <section class='bottom-heading'>
+          <h2 class='where-next-heading'>where to next?</h2>
+        </section>
       </section>
       <section class='destinations'>
-        <section class='destination-card'>
-          <h3>Lima, Peru</h3>
-          <img src="" alt="">
-        </section>
-        <section class='destination-card'>
-          <h3>Lima, Peru</h3>
-          <img src="" alt="">
-        </section>
-        <section class='destination-card'>
-          <h3>Lima, Peru</h3>
-          <img src="" alt="">
-        </section>
+        <div class="glide">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <!-- <section class='destination-suggestions'> -->
+                <li class="glide__slide"><img src='./images/Kathmandu-Nepal.png' alt='Kathmandu Nepal photo'>
+                  <p class='img-description'>Kathmandu, Napal</p>
+                </li>
 
+                <li class="glide__slide"><img src='./images/Manila-Philippines.png' alt="Manila Philippines photo"></li>
+                <!-- <p class='img-description'>Manila, Philippines</p> -->
+                <li class="glide__slide"><img src='./images/Madrid-Spain.png' alt='Madrid Spain photo'></li>
+                <!-- <p class='img-description'>Madrid, Spain</p> -->
+                <li class="glide__slide"><img src='./images/Cape-Town-South-Africa.png' alt='Cape Town South Africa photo'></li>
+                <!-- <p class='img-description'>Cape Town, South Africa</p> -->
+                <li class="glide__slide"><img src='./images/Reykyavik-Iceland.png' alt='Reykyavik Iceland photo'></li>
+                <!-- <p class='img-description'>Reykyavik, Iceland</p> -->
+                <li class="glide__slide"><img src='./images/Wellington-NewZealand.png' alt='Wellington New Zealand photo'></li>
+                <!-- <p class='img-description'>Wellington, New Zealand</p> -->
+                <li class="glide__slide"><img src='./images/Bangkok-Thailand.png' alt='Bangkok Thailand photo'></li>
+                <!-- <p class='img-description'>Bangkok, Thailand</p> -->
+
+              <!-- </section> -->
+
+            </ul>
+          </div>
+        <div class='glide__arrows' data-glide-el="controls">
+          <button class='glide__arrow glide__arrow--left' data-glide-dir="<"><<</button>
+          <button class='glide__arrow glide__arrow--right' data-glide-dir=">">>></button>
+        </div>
+      </div>
       </section>
+
     </main>
   </main>
 
