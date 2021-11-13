@@ -6,7 +6,6 @@
 
 body {
   font-family: 'Comfortaa';
-  // overflow: hidden;
 }
 
 * {
@@ -24,10 +23,6 @@ header {
 
 }
 
-// .img-wrap {
-//   position: relative;
-//   overflow: hidden;
-// }
 img {
   max-height: 100%;
   max-width: 80%;
@@ -40,32 +35,6 @@ img {
 p {
   text-align: center;
 }
-
-// img:hover {
-//   opacity: 0.4;
-//   transition:opacity 1s;
-// }
-//
-//
-// .img-description {
-//
-//   // display: inline-block;
-//   vertical-align: middle;
-//   position: absolute;
-//   // visibility: hidden;
-//   opacity: 0;
-// }
-//
-// .img-wrap p {
-//   z-index: -1;
-//   display: inline-block;
-// }
-//
-// .img-wrap:hover .img-description {
-//   visibility: visible;
-//   opacity: 1;
-//   z-index: 4;
-// }
 
 .travel-title {
   display: flex;
@@ -142,8 +111,6 @@ input {
   width: 95%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  // padding-top: 15px;
 }
 
 .hidden {

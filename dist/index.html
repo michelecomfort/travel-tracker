@@ -21,6 +21,7 @@
         <form class="trips-view" action="index.html" method="post" id='userMenu'>
           <label for="trip-type"></label>
           <select class="trip-type" name="trip-type" id='tripView'>
+            <option value="past" id='pastTrips'>my account.</option>
             <option value="past" id='pastTrips'>past trips.</option>
             <option value="upcoming" id='upcomingTrips'>upcoming trips.</option>
             <option value="pending" id='pendingTrips'>pending trips.</option>
@@ -32,8 +33,8 @@
     </nav>
     <section class='book-trip'>
       <input type="text" name="destination" value="destination">
-      <input placeholder="start date" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date">
-      <input placeholder="end date" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date">
+      <input placeholder="start date" class="form-control" type="text" onfocus="(this.type='date') (this.min=new Date().toISOString().split('T')[0])" onblur="(this.type='text')" id="startDate">
+      <input placeholder="end date" class="form-control" type="text" onfocus="(this.type='date') " onblur="(this.type='text')" id="date">
       <input type="number" name="guests" min=1 value="" placeholder="guests">
       <!-- <button type="submit" name="button">get estimate.</button> -->
       <button type="submit" name="button" class='book-button'>book it.</button>

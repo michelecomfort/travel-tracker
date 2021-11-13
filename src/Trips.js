@@ -2,6 +2,7 @@
 export default class Trips {
   constructor(trips) {
     this.trips = trips
+    console.log("<><><>",this.trips)
     this.pastTrips = []
     this.futureTrips
     this.pendingTrips = []

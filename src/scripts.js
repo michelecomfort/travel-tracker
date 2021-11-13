@@ -50,10 +50,14 @@ const upcomingTrips = document.querySelector('#upcomingTrips')
 const pendingTrips = document.querySelector('#pendingTrips')
 const tripView = document.querySelector('#tripView')
 const userMenu = document.querySelector('#userMenu')
+const startDate = document.querySelector('#startDate')
+
+
+
+
 const retrieveUser = () => {
   let loginID = userName.value.split('').splice(8, 2).join('')
   retrieveAllData(loginID)
-
 }
 loginButton.addEventListener('click', retrieveUser)
 
