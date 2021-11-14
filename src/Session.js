@@ -15,6 +15,7 @@ export default class Session {
 
   retrieveUser(user) {
     this.user = new User({id: user.id, name: user.name, travelerType: user.travelerType})
+    console.log(this.user)
     return this.user
   }
 
@@ -34,19 +35,19 @@ export default class Session {
     return this.destinationData
   }
 
-  getTotalDollarSpentThisYear() {
-    let result = this.userTripsData.reduce((acc, trip) => {
-      if(trip.date.includes('2021')) {
-        this.destinationData.filter(dest => {
-          if (trip.destinationID === dest.id) {
-            acc += (trip.travelers * dest.estimatedFlightCostPerPerson) + (trip.duration * dest.estimatedLodgingCostPerDay)
-          }
-        })
-      }
-      return acc
-    }, 0)
-    return result
-  }
+  // getTotalDollarSpentThisYear() {
+  //   let result = this.userTripsData.reduce((acc, trip) => {
+  //     if(trip.date.includes('2021')) {
+  //       this.destinationData.filter(dest => {
+  //         if (trip.destinationID === dest.id) {
+  //           acc += (trip.travelers * dest.estimatedFlightCostPerPerson) + (trip.duration * dest.estimatedLodgingCostPerDay)
+  //         }
+  //       })
+  //     }
+  //     return acc
+  //   }, 0)
+  //   return result
+  // }
 
   getTripCost(location, duration, guests) {
     let result = this.destinationData.reduce((acc, destination) => {
