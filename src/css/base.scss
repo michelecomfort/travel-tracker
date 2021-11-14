@@ -82,15 +82,33 @@ h2 {
   border-radius: 30px;
 }
 
-input {
+.days,
+.guests,
+.start-date,
+.destination-dropdown,
+.user-name,
+.password,
+.trip-type {
   border: none;
   border-radius: 6px;
   margin: 3px;
-  width: 60%;
+  // width: 60%;
   text-align: center;
 }
 
-.book-button {
+.start-date,
+.destination-dropdown {
+  width: 60%;
+}
+
+.days,
+.guests {
+  width: 25%;
+}
+
+
+
+.button {
   background-color: #FE395C;
   border: none;
   border-radius: 6px;

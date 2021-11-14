@@ -51,10 +51,16 @@ const upcomingTrips = document.querySelector('#upcomingTrips')
 const pendingTrips = document.querySelector('#pendingTrips')
 const tripView = document.querySelector('#tripView')
 const userMenu = document.querySelector('#userMenu')
-const startDate = document.querySelector('#startDate')
 const bottomHeading = document.querySelector('#bottomHeading')
 const destinationsSection = document.querySelector('#destinations')
 const browsers = document.querySelector('#browsers')
+const startDate = document.querySelector('#startDate')
+const guests = document.querySelector('#guests')
+const numDays = document.querySelector('#numDays')
+const getEstimate = document.querySelector('#getEstimate')
+const estimateButton = document.querySelector('#estimateButton')
+const browser = document.querySelector('#browser')
+const bookButton = document.querySelector('#bookButton')
 
 
 
@@ -99,7 +105,6 @@ const parseData = (data) => {
 const changeFormView = () => {
   switch (tripView.value) {
   case 'past':
-
     let past = session.getPastTrips(todayDate)
     displayTrips(past, tripView.value)
     break;
@@ -144,29 +149,21 @@ const displayTrips = (trips, value) => {
   }
 }
 
-
-
-const displayUpcomingTrips = () => {
-  bottomHeading.innerHTML = `
-  <h2>my upcoming trips</h2>
-  `
-  destinationsSection.innerHTML = `
-  `
-}
-
-const displayPendingTrips = () => {
-  bottomHeading.innerHTML = `
-  <h2>my pending trips</h2>
-  `
-  destinationsSection.innerHTML = `
-  `
-}
-
 const addDestinationSearch = () => {
   session.destinationData.forEach(dest => {
     browsers.innerHTML += `
     <option value="${dest.destination}">`
   })
+}
+
+const showEstimate = () => {
+  if (browser.value && startDate.value && numDays.value && guests.value) {
+    let result = session.getTripCost(browser.value, numDays.value, guests.value)
+    getEstimate.innerHTML =
+    '<p>Your estimate cost would be ' + '$' + result + '.</p>'
+    estimateButton.classList.add('hidden')
+    bookButton.classList.remove('hidden')
+  }
 }
 // const renderDom = (session) => {
 //   populateMyTrips()
@@ -181,5 +178,5 @@ const addDestinationSearch = () => {
 // }
 
 
-// browsers.addEventListener('change', addDestinationSearch)
+estimateButton.addEventListener('click', showEstimate)
 userMenu.addEventListener('change', changeFormView)
