@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="image" href="../images/suitcase.png">
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <link rel='image' href='../images/suitcase.png'>
   <title>travel.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Lato:wght@100;300;400;700&family=Merriweather&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Lato:wght@100;300;400;700&family=Merriweather&display=swap' rel='stylesheet'>
 </head>
 <body>
   <main>
@@ -14,35 +14,37 @@
       <nav class =top-nav>
         <h1 class='travel-title'>travel.</h1>
         <section class='login '>
-          <input id='userName' class='user-name'type="text" name="username" value="" required>
-          <input id='password'class='password'type="password" name="password" value="" required>
-          <button id='login-button' type="button" name="button">login</button>
+          <input id='userName' class='user-name' type='text' name='username' value='' required>
+          <input id='password'class='password' type='password' name='password' value='' required>
+          <button id='login-button' type='button' name='button'>login</button>
         </section>
-        <form class="trips-view" action="index.html" method="post" id='userMenu'>
-          <label for="trip-type"></label>
-          <select class="trip-type" name="trip-type" id='tripView'>
-            <option value="my-account" id='myAccount'>my account.</option>
-            <option value="past" id='pastTrips'>past trips.</option>
-            <option value="upcoming" id='upcomingTrips'>upcoming trips.</option>
-            <option value="pending" id='pendingTrips'>pending trips.</option>
-            <option value="pending" id='pendingTrips'>expenses.</option>
+        <form class='trips-view' action='index.html' method='post' id='userMenu'>
+          <label for='trip-type'></label>
+          <select class='trip-type' name='trip-type' id='tripView'>
+            <option value='my-account' id='myAccount'>my account.</option>
+            <option value='past' id='pastTrips'>past trips.</option>
+            <option value='upcoming' id='upcomingTrips'>upcoming trips.</option>
+            <option value='pending' id='pendingTrips'>pending trips.</option>
+            <option value='expenses' id='pendingTrips'>expenses.</option>
           </select>
         </form>
     </nav>
     <section class='get-estimate' id='getEstimate'>
-      <p>Your estimate cost would be $1000</p>
+      <!-- <p>Your estimate cost would be $1000</p> -->
     </section>
     <section class='book-trip'>
-      <input placeholder='destination' list="browsers" name="myBrowser" class='destination-dropdown'>
-        <datalist id="browsers">
+      <input placeholder='destination' list='browsers' name='myBrowser' class='destination-dropdown' id='browser'>
+        <datalist id='browsers'>
         </datalist>
-      <input placeholder="start date" class="form-control start-date" type="text" onfocus="(this.type='date') (this.min=new Date().toISOString().split('T')[0])" onblur="(this.type='text')" id="startDate">
-      <!-- <input placeholder="end date" class="form-control" type="text" onfocus="(this.type='date') " onblur="(this.type='text')" id="date"> -->
-      <input type="number" name="guests" min=1 value="" placeholder="days" class='days' id='numDays'>
-      <input type="number" name="guests" min=1 value="" placeholder="guests" class='guests'id='guests'>
-      <button type="submit" name="button" class='estimate-button button'id='estimateButton'>get estimate.</button>
-      <button type="submit" name="button" class='book-button hidden'>book it.</button>
+      <input placeholder='start date' class='form-control start-date' type='date'   id='startDate'>
+      <!-- <input placeholder='end date' class='form-control' type='text' onfocus='(this.type='date') ' onblur='(this.type='text')' id='date'> -->
+      <input type='number' name='guests' min=1 value='' placeholder='days' class='days' id='numDays'>
+      <input type='number' name='guests' min=1 value='' placeholder='guests' class='guests'id='guests'>
+      <button type='submit' name='button' class='estimate-button button'id='estimateButton'>get estimate.</button>
+      <button type='submit' name='button' class='book-button button hidden' id='bookButton'>book it.</button>
 
+<!-- onfocus='(this.type="date") (this.min=new Date().toISOString().split("T")[0])' -->
+<!-- onblur='(this.type='text')' -->
     </section>
 
     </header>
@@ -53,34 +55,34 @@
         </section>
       </section>
       <section class='destinations' id='destinations'>
-        <div class="glide hidden">
-          <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
+        <div class='glide hidden'>
+          <div class='glide__track' data-glide-el='track'>
+            <ul class='glide__slides'>
               <!-- <section class='destination-suggestions'> -->
-                <li class="glide__slide"><img src='./images/Kathmandu-Nepal.png' alt='Kathmandu Nepal photo'>
+                <li class='glide__slide'><img src='./images/Kathmandu-Nepal.png' alt='Kathmandu Nepal photo'>
                   <p class='img-description'>Kathmandu, Napal</p>
                 </li>
 
-                <li class="glide__slide"><img src='./images/Manila-Philippines.png' alt="Manila Philippines photo"></li>
+                <li class='glide__slide'><img src='./images/Manila-Philippines.png' alt='Manila Philippines photo'></li>
                 <!-- <p class='img-description'>Manila, Philippines</p> -->
-                <li class="glide__slide"><img src='./images/Madrid-Spain.png' alt='Madrid Spain photo'></li>
+                <li class='glide__slide'><img src='./images/Madrid-Spain.png' alt='Madrid Spain photo'></li>
                 <!-- <p class='img-description'>Madrid, Spain</p> -->
-                <li class="glide__slide"><img src='./images/Cape-Town-South-Africa.png' alt='Cape Town South Africa photo'></li>
+                <li class='glide__slide'><img src='./images/Cape-Town-South-Africa.png' alt='Cape Town South Africa photo'></li>
                 <!-- <p class='img-description'>Cape Town, South Africa</p> -->
-                <li class="glide__slide"><img src='./images/Reykyavik-Iceland.png' alt='Reykyavik Iceland photo'></li>
+                <li class='glide__slide'><img src='./images/Reykyavik-Iceland.png' alt='Reykyavik Iceland photo'></li>
                 <!-- <p class='img-description'>Reykyavik, Iceland</p> -->
-                <li class="glide__slide"><img src='./images/Wellington-NewZealand.png' alt='Wellington New Zealand photo'></li>
+                <li class='glide__slide'><img src='./images/Wellington-NewZealand.png' alt='Wellington New Zealand photo'></li>
                 <!-- <p class='img-description'>Wellington, New Zealand</p> -->
-                <li class="glide__slide"><img src='./images/Bangkok-Thailand.png' alt='Bangkok Thailand photo'></li>
+                <li class='glide__slide'><img src='./images/Bangkok-Thailand.png' alt='Bangkok Thailand photo'></li>
                 <!-- <p class='img-description'>Bangkok, Thailand</p> -->
 
               <!-- </section> -->
 
             </ul>
           </div>
-        <div class='glide__arrows' data-glide-el="controls">
-          <button class='glide__arrow glide__arrow--left' data-glide-dir="<"><<</button>
-          <button class='glide__arrow glide__arrow--right' data-glide-dir=">">>></button>
+        <div class='glide__arrows' data-glide-el='controls'>
+          <button class='glide__arrow glide__arrow--left' data-glide-dir='<'><<</button>
+          <button class='glide__arrow glide__arrow--right' data-glide-dir='>'>>></button>
         </div>
       </div>
       </section>
@@ -89,7 +91,7 @@
   </main>
 
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
+  <script src='bundle.js'></script>
 
 </body>
 </html>

@@ -58,6 +58,7 @@ export default class Session {
     }, 0)
     let agentFee = result * .1
     result += agentFee
+    console.log(result)
     return result
   }
 
