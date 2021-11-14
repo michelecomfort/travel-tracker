@@ -10,7 +10,7 @@ return fetch(`http://localhost:3001/api/v1/${dataset}`)
 }
 
 const postData = (data) => {
-  return fetch (`http://localhost:3001/api/v1/trips`, {
+  return fetch ('http://localhost:3001/api/v1/trips', {
     method: 'Post',
     body: JSON.stringify(data),
     headers: {

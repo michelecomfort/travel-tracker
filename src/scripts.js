@@ -165,6 +165,38 @@ const showEstimate = () => {
     bookButton.classList.remove('hidden')
   }
 }
+
+const getDestinationID = () => {
+  let result = session.destinationData.find(dest => {
+    if(dest.destination === browser.value) {
+      console.log(dest)
+      return dest
+    }
+  })
+  console.log(result.id)
+  return result.id
+}
+
+const formatDate = (date) => {
+  const formattedDate = date.replaceAll('-', '/');
+  return formattedDate;
+}
+
+const bookTrip = () => {
+  console.log(session.user.id)
+  const bookTripData = {
+    id: session.allTripsData.length + 1,
+    userID: session.user.id,
+    destinationID: getDestinationID(),
+    travelers: guests.value,
+    date: formatDate(startDate.value),
+    duration: numDays.value,
+    status: 'pending',
+    suggestedActivities: []
+  }
+  console.log(bookTripData)
+  postData(bookTripData)
+}
 // const renderDom = (session) => {
 //   populateMyTrips()
 //
@@ -177,6 +209,6 @@ const showEstimate = () => {
 //   element.className.toggle('hidden')
 // }
 
-
+bookButton.addEventListener('click', bookTrip)
 estimateButton.addEventListener('click', showEstimate)
 userMenu.addEventListener('change', changeFormView)

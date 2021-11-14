@@ -20,6 +20,8 @@ export default class Session {
   }
 
   createTripsStorage(tripsData) {
+    this.allTripsData = tripsData
+    console.log(this.allTripsData)
     let trips = tripsData.filter(trip => {
     return  trip.userID === this.user.id
   })
