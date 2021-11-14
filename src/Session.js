@@ -14,14 +14,12 @@ export default class Session {
   }
 
   retrieveUser(user) {
-    console.log(user)
     this.user = new User({id: user.id, name: user.name, travelerType: user.travelerType})
     return this.user
   }
 
   createTripsStorage(tripsData) {
     this.allTripsData = tripsData
-    console.log(this.allTripsData)
     let trips = tripsData.filter(trip => {
     return  trip.userID === this.user.id
   })
@@ -47,7 +45,6 @@ export default class Session {
       }
       return acc
     }, 0)
-    console.log('here',result)
     return result
   }
 
@@ -60,12 +57,10 @@ export default class Session {
     }, 0)
     let agentFee = result * .1
     result += agentFee
-    console.log(result)
     return result
   }
 
   getPastTrips(todayDate) {
-    console.log('here here')
     let date1 = new Date(todayDate)
     let result = this.userTripsData.filter(trip => {
       let date2 = new Date(trip.date)
@@ -73,7 +68,6 @@ export default class Session {
         return trip
       }
     })
-    console.log('hello',result)
     return result
   }
 
@@ -85,7 +79,6 @@ export default class Session {
         return trip
       }
     })
-    console.log(result)
     return result
   }
 

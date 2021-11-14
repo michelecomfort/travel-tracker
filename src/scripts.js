@@ -160,7 +160,7 @@ const showEstimate = () => {
   if (browser.value && startDate.value && numDays.value && guests.value) {
     let result = session.getTripCost(browser.value, numDays.value, guests.value)
     getEstimate.innerHTML =
-    '<p>Your estimate cost would be ' + '$' + result + '.</p>'
+    '<p class="estimate-calculation">Your estimate cost would be ' + '$' + result + '.</p>'
     estimateButton.classList.add('hidden')
     bookButton.classList.remove('hidden')
   }
@@ -169,11 +169,9 @@ const showEstimate = () => {
 const getDestinationID = () => {
   let result = session.destinationData.find(dest => {
     if(dest.destination === browser.value) {
-      console.log(dest)
       return dest
     }
   })
-  console.log(result.id)
   return result.id
 }
 
@@ -183,7 +181,6 @@ const formatDate = (date) => {
 }
 
 const bookTrip = () => {
-  console.log(session.user.id)
   const bookTripData = {
     id: session.allTripsData.length + 1,
     userID: session.user.id,
@@ -194,7 +191,6 @@ const bookTrip = () => {
     status: 'pending',
     suggestedActivities: []
   }
-  console.log(bookTripData)
   postData(bookTripData)
 }
 // const renderDom = (session) => {

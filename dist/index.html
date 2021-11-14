@@ -14,9 +14,9 @@
       <nav class =top-nav>
         <h1 class='travel-title'>travel.</h1>
         <section class='login '>
-          <input id='userName' class='user-name' type='text' name='username' value='' required>
-          <input id='password'class='password' type='password' name='password' value='' required>
-          <button id='login-button' type='button' name='button'>login</button>
+          <input id='userName' class='user-name' type='text' name='username' placeholder='username' value='' required>
+          <input id='password'class='password' type='password' name='password' placeholder='password' value='' required>
+          <button id='login-button' type='button' class='login-button' name='button'>enter.</button>
         </section>
         <form class='trips-view' action='index.html' method='post' id='userMenu'>
           <label for='trip-type'></label>
@@ -29,18 +29,21 @@
           </select>
         </form>
     </nav>
+    <section>
+      <h3 class='book-getaway-heading'>book your next getaway.</h3>
+    </section>
     <section class='get-estimate' id='getEstimate'>
-      <!-- <p>Your estimate cost would be $1000</p> -->
+      <p class='estimate-calculation'>Your estimate cost would be $1000.</p>
     </section>
     <section class='book-trip'>
       <input placeholder='destination' list='browsers' name='myBrowser' class='destination-dropdown' id='browser'>
         <datalist id='browsers'>
         </datalist>
-      <input placeholder='start date' class='form-control start-date' type='date'   id='startDate'>
+      <input placeholder='start date' class='form-control start-date' type='date' id='startDate'>
       <!-- <input placeholder='end date' class='form-control' type='text' onfocus='(this.type='date') ' onblur='(this.type='text')' id='date'> -->
       <input type='number' name='guests' min=1 value='' placeholder='days' class='days' id='numDays'>
-      <input type='number' name='guests' min=1 value='' placeholder='guests' class='guests'id='guests'>
-      <button type='submit' name='button' class='estimate-button button'id='estimateButton'>get estimate.</button>
+      <input type='number' name='guests' min=1 value='' placeholder='guests' class='guests' id='guests'>
+      <button type='submit' name='button' class='estimate-button button' id='estimateButton'>get estimate.</button>
       <button type='submit' name='button' class='book-button button hidden' id='bookButton'>book it.</button>
 
 <!-- onfocus='(this.type="date") (this.min=new Date().toISOString().split("T")[0])' -->
@@ -55,7 +58,7 @@
         </section>
       </section>
       <section class='destinations' id='destinations'>
-        <div class='glide hidden'>
+        <div class='glide'>
           <div class='glide__track' data-glide-el='track'>
             <ul class='glide__slides'>
               <!-- <section class='destination-suggestions'> -->
