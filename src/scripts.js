@@ -129,7 +129,6 @@ const displayTrips = (trips, value) => {
   if (trips.length > 0) {
     bottomHeading.innerHTML =
     '<h2>my ' + value + ' trips</h2>'
-
     destinationsSection.innerHTML = ''
     trips.forEach(trip => {
       session.destinationData.forEach(dest => {
@@ -138,8 +137,7 @@ const displayTrips = (trips, value) => {
           <section class='trips-display'>
           <h4>${dest.destination}</h4>
           <p>${trip.date}</p>
-          </section>
-          `
+          </section>  `
         }
       })
     })
@@ -192,6 +190,9 @@ const bookTrip = () => {
     suggestedActivities: []
   }
   postData(bookTripData)
+  // addTripToPending(browser.value, startDate.value)
+  // changeFormView()
+  retrieveAllData(session.user.id)
 }
 // const renderDom = (session) => {
 //   populateMyTrips()
@@ -204,6 +205,15 @@ const bookTrip = () => {
 // const toggleView = (element) => {
 //   element.className.toggle('hidden')
 // }
+
+const addTripToPending = (location, date) => {
+  destinationsSection.innerHTML += `
+  <section class='trips-display'>
+  <h4>${location}</h4>
+  <p>${date}</p>
+  </section>
+  `
+}
 
 bookButton.addEventListener('click', bookTrip)
 estimateButton.addEventListener('click', showEstimate)

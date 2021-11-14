@@ -105,12 +105,14 @@ h2 {
 
 .start-date,
 .destination-dropdown {
-  width: 60%;
+  width: 50%;
+  min-width: 30%;
 }
 
 .days,
 .guests {
   width: 25%;
+  // min-width: 20%;
 }
 
 .estimate-calculation {
