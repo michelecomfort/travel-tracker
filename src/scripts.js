@@ -61,6 +61,7 @@ const getEstimate = document.querySelector('#getEstimate')
 const estimateButton = document.querySelector('#estimateButton')
 const browser = document.querySelector('#browser')
 const bookButton = document.querySelector('#bookButton')
+const glider = document.querySelector('#gliderSection')
 
 
 
@@ -89,7 +90,7 @@ const parseData = (data) => {
   session.createTripsStorage(data[1].trips)
   session.createDestinationsStorage(data[2].destinations)
   //below functions will move to domManip on click events
-  session.getTotalDollarSpentThisYear()
+
   session.getTripCost('Cartagena, Colombia', 7, 2)
   addDestinationSearch()
   // session.getPastTrips(todayDate)
@@ -116,9 +117,11 @@ const changeFormView = () => {
     let pending = session.getPendingTrips()
     displayTrips(pending, tripView.value)
     break;
-    // case 'expenses.':
-    //
-    //   break;
+  case 'expenses':
+    let expenses = session.user.getTotalDollarSpentThisYear(session)
+    console.log('hello there')
+    displayExpenses(expenses)
+    break;
   default:
     console.log('something went wrong');
     break;
@@ -126,6 +129,7 @@ const changeFormView = () => {
 };
 
 const displayTrips = (trips, value) => {
+  // glider.classList.add('hidden')
   if (trips.length > 0) {
     bottomHeading.innerHTML =
     '<h2>my ' + value + ' trips</h2>'
@@ -145,6 +149,13 @@ const displayTrips = (trips, value) => {
     bottomHeading.innerHTML = '<p>You have no ' + value + ' trips at this time.</p>'
     destinationsSection.innerHTML = ''
   }
+}
+
+const displayExpenses = (expenses) => {
+  destinationsSection.innerHTML = ''
+  bottomHeading.innerHTML = '<h2>Yearly Expenses</h2>'
+  destinationsSection.innerHTML +=
+  '<h4>This year you have spent a total of $' + expenses + ' on fun excursions!</h4>'
 }
 
 const addDestinationSearch = () => {
@@ -207,6 +218,7 @@ const bookTrip = () => {
 // }
 
 const addTripToPending = (location, date) => {
+  glider.classList.add('hidden')
   destinationsSection.innerHTML += `
   <section class='trips-display'>
   <h4>${location}</h4>
