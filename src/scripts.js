@@ -34,9 +34,20 @@ import { changeFormView, displayTrips, displayExpenses, addDestinationSearch, sh
 import Session from './Session'
 
 const session = new Session()
+const loginForm = document.querySelector('#loginForm')
 const userName = document.querySelector('#userName')
 const loginButton = document.querySelector('#login-button')
 const userMenu = document.querySelector('#userMenu')
+const password = document.querySelector('#password')
+
+const login = () => {
+  if (userName.value && password.value === 'travel') {
+    retrieveUser()
+  } else {
+    loginForm.innerHTML +=
+    '<p class="login-message">Sorry, there is an error with your username and password. Please try again.</p>'
+  }
+}
 
 const retrieveUser = () => {
   let loginID = userName.value.split('').splice(8, 2).join('')
@@ -67,7 +78,7 @@ estimateButton.addEventListener('click', function() {
 userMenu.addEventListener('change', function() {
   changeFormView(session)
 })
-loginButton.addEventListener('click', retrieveUser)
+loginButton.addEventListener('click', login)
 
 
 
