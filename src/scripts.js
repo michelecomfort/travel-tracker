@@ -44,7 +44,7 @@ const retrieveUser = () => {
 }
 
 const retrieveAllData = (id) => {
-  Promise.all([fetchUserData(id), fetchData('trips'), fetchData('destinations')]).then(data => {
+  return Promise.all([fetchUserData(id), fetchData('trips'), fetchData('destinations')]).then(data => {
     parseData(data)
   }).catch(error => {
     console.log(error)

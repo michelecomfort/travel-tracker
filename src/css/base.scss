@@ -50,7 +50,7 @@ nav {
   justify-content: space-between;
 }
 
-h2 {
+h3 {
   padding: 1%;
 }
 
@@ -87,7 +87,7 @@ h2 {
   background-color: #D3EFE9;
   display: flex;
   margin-left: 2%;
-  padding: 2%;
+  padding: 1.5%;
   width: 50%;
   border-radius: 30px;
 }
@@ -128,7 +128,9 @@ h2 {
   background-color: #FE395C;
   border: none;
   border-radius: 6px;
-  color: white;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 18px;
   margin-left: 4%;
   padding: 1% 2%;
   // height: 50%;
