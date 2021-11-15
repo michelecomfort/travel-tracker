@@ -98,8 +98,13 @@ const bookTrip = (session) => {
     status: 'pending',
     suggestedActivities: []
   }
-  postData(bookTripData)
-  retrieveAllData(session.user.id)
+    postData(bookTripData).then(() => {
+      retrieveAllData(session.user.id).then(() => {
+        let pending = session.userTripsObj.getPendingTrips()
+        displayTrips(session, pending, tripView.value)
+      })
+    }
+  )
 }
 
 const getDestinationID = (session) => {

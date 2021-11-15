@@ -14,44 +14,40 @@
       <nav class =top-nav>
         <h1 class='travel-title'>travel.</h1>
         <form class='login '>
-          <input id='userName' class='user-name' type='text' name='username' placeholder='username' value='' required>
-          <input id='password'class='password' type='password' name='password' placeholder='password' value='' required>
-          <button id='login-button' type='button' class='login-button' name='button'>enter.</button>
+          <input id='userName' aria-label='username' class='user-name' type='text' name='username' placeholder='username' value='' required>
+          <input id='password' aria-label='password' class='password' type='password' name='password' placeholder='password' value='' required>
+          <button id='login-button' aria-label='login-button' type='button' class='login-button' name='button'>enter.</button>
         </form>
-        <form class='trips-view' action='index.html' method='post' id='userMenu'>
-          <label for='trip-type'></label>
-          <select class='trip-type' name='trip-type' id='tripView'>
+        <form class='trips-view' aria-label='my-trips-account' action='index.html' method='post' id='userMenu'>
+          <select class='trip-type' aria-label='trip-view' name='trip-type' id='tripView'>
             <option value='my-account' id='myAccount'>my account.</option>
-            <option value='past' id='pastTrips'>past trips.</option>
-            <option value='upcoming' id='upcomingTrips'>upcoming trips.</option>
-            <option value='pending' id='pendingTrips'>pending trips.</option>
-            <option value='expenses' id='pendingTrips'>expenses.</option>
+            <option value='past' aria-label='past-trips' id='pastTrips'>past trips.</option>
+            <option value='upcoming' aria-label='upcoming-trips' id='upcomingTrips'>upcoming trips.</option>
+            <option value='pending' aria-label='pending-trips' id='pendingTrips'>pending trips.</option>
+            <option value='expenses' aria-label='yearly-expenses' id='pendingTrips'>expenses.</option>
           </select>
         </form>
     </nav>
     <section>
-      <h3 class='book-getaway-heading'>book your next getaway.</h3>
+      <h2 class='book-getaway-heading'>book your next getaway.</h2>
     </section>
     <section class='get-estimate' id='getEstimate'>
     </section>
     <section class='book-trip'>
-      <input placeholder='destination' list='browsers' name='myBrowser' class='destination-dropdown' id='browser'>
+      <input placeholder='destination' aria-label='destination-select' list='browsers' name='myBrowser' class='destination-dropdown' id='browser'>
         <datalist id='browsers'>
         </datalist>
-      <input placeholder='start date' class='form-control start-date' type='date' id='startDate'>
-      <!-- <input placeholder='end date' class='form-control' type='text' onfocus='(this.type='date') ' onblur='(this.type='text')' id='date'> -->
-      <input type='number' name='guests' min=1 value='' placeholder='days' class='days' id='numDays'>
-      <input type='number' name='guests' min=1 value='' placeholder='guests' class='guests' id='guests'>
-      <button type='submit' name='button' class='estimate-button button' id='estimateButton'>get estimate.</button>
-      <button type='submit' name='button' class='book-button button hidden' id='bookButton'>book it.</button>
-<!-- onfocus='(this.type="date") (this.min=new Date().toISOString().split("T")[0])' -->
-<!-- onblur='(this.type='text')' -->
+      <input placeholder="start date" aria-label='calendar-select' class="form-control start-date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id='startDate'>
+      <input type='number' aria-label='number-of-days' name='days' min=1 value='' placeholder='days' class='days' id='numDays'>
+      <input type='number' aria-label='number-of-guests' name='guests' min=1 value='' placeholder='guests' class='guests' id='guests'>
+      <button type='submit' aria-label='estimate-button' name='button' class='estimate-button button' id='estimateButton'>get estimate.</button>
+      <button type='submit' aria-label='book-trip-button' name='button' class='book-button button hidden' id='bookButton'>book it.</button>
     </section>
     </header>
     <main>
       <section class='bottom-section'>
         <section class='bottom-heading'>
-          <h2 class='bottom-heading' id='bottomHeading'>where to next?</h2>
+          <h3 class='bottom-heading' id='bottomHeading'>where to next?</h3>
         </section>
       </section>
       <section class='destinations' id='destinations'>
