@@ -24,18 +24,33 @@ export default class Trips {
     })
   }
 
-  // getTripCost(session, location, duration, guests) {
-  //   let result = session.destinationData.reduce((acc, destination) => {
-  //     if (destination.destination === location){
-  //     acc += (destination.estimatedLodgingCostPerDay * duration) + (destination.estimatedFlightCostPerPerson * guests)
-  //     }
-  //     return acc
-  //   }, 0)
-  //   let agentFee = result * .1
-  //   result += agentFee
-  //   return result
-  // }
+  getPastTrips(todayDate) {
+    let date1 = new Date(todayDate)
+    let result = this.trips.filter(trip => {
+      let date2 = new Date(trip.date)
+      if (date2 < date1  && trip.status === 'approved') {
+        return trip
+      }
+    })
+    return result
+  }
 
+  getUpcomingTrips(todayDate) {
+    let date1 = new Date(todayDate)
+    let result = this.trips.filter(trip => {
+      let date2 = new Date(trip.date)
+      if (date2 > date1  && trip.status === 'approved') {
+        return trip
+      }
+    })
+    return result
+  }
 
+  getPendingTrips() {
+    let result = this.trips.filter(trip => {
+      return trip.status ==='pending'
+    })
+      return result
+  }
 
 }

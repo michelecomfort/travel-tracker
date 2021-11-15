@@ -106,15 +106,15 @@ const parseData = (data) => {
 const changeFormView = () => {
   switch (tripView.value) {
   case 'past':
-    let past = session.getPastTrips(todayDate)
+    let past = session.userTripsObj.getPastTrips(todayDate)
     displayTrips(past, tripView.value)
     break;
   case 'upcoming':
-    let upcoming = session.getUpcomingTrips(todayDate)
+    let upcoming = session.userTripsObj.getUpcomingTrips(todayDate)
     displayTrips(upcoming, tripView.value)
     break;
   case 'pending':
-    let pending = session.getPendingTrips()
+    let pending = session.userTripsObj.getPendingTrips()
     displayTrips(pending, tripView.value)
     break;
   case 'expenses':
