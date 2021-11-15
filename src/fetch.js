@@ -1,12 +1,11 @@
-
 const fetchUserData = (id) => {
   return fetch(`http://localhost:3001/api/v1/travelers/${id}`)
     .then(result => result.json())
 }
 
 const fetchData = (dataset) => {
-return fetch(`http://localhost:3001/api/v1/${dataset}`)
-  .then(result => result.json())
+  return fetch(`http://localhost:3001/api/v1/${dataset}`)
+    .then(result => result.json())
 }
 
 const postData = (data) => {

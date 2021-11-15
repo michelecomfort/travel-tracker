@@ -1,4 +1,3 @@
-
 export default class User {
   constructor(traveler) {
     this.id = traveler.id,
@@ -23,5 +22,4 @@ export default class User {
     }, 0)
     return result
   }
-
 }
