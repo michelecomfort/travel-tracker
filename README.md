@@ -1,5 +1,12 @@
 # Travel Tracker
 
+Turing School of Software & Design
+
+2108 FEE, Mod 2 - Final Solo project
+
+##Abstract
+Travel Tracker is a web app that allows users to interact with a travel agent to view their trips both past and present, as well as book new trips. They have a single dashboard that they log into with their credentials which then allows them to browse through 50 destinations and decide if they want to request a new trip.
+
 # Webpack Starter Kit
 
 ## Clone This Repo

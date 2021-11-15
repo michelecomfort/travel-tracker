@@ -39,19 +39,21 @@ const userName = document.querySelector('#userName')
 const loginButton = document.querySelector('#login-button')
 const userMenu = document.querySelector('#userMenu')
 const password = document.querySelector('#password')
+const error = document.querySelector('#error')
+loginButton.addEventListener('click', function() {
+  login()
+})
 
-const login = () => {
-  if (userName.value && password.value === 'travel') {
-    retrieveUser()
-  } else {
-    loginForm.innerHTML +=
-    '<p class="login-message">Sorry, there is an error with your username and password. Please try again.</p>'
-  }
-}
-
-const retrieveUser = () => {
+function login() {
   let loginID = userName.value.split('').splice(8, 2).join('')
-  retrieveAllData(loginID)
+  if (userName.value === `traveler${loginID}` && password.value === 'travel') {
+    retrieveAllData(loginID)
+    // error.innerHTML += ''
+  } else {
+    error.innerHTML +=
+    '<p class="login-message">Sorry, there is an error with your username and password. Please try again.</p>'
+
+  }
 }
 
 const retrieveAllData = (id) => {
@@ -78,7 +80,7 @@ estimateButton.addEventListener('click', function() {
 userMenu.addEventListener('change', function() {
   changeFormView(session)
 })
-loginButton.addEventListener('click', login)
+
 
 
 

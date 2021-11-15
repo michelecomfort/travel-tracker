@@ -14,10 +14,13 @@
       <nav class =top-nav>
         <h1 class='travel-title'>travel.</h1>
         <form class='login' id='loginForm'>
-          <input id='userName' aria-label='username' class='user-name' type='text' name='username' placeholder='username' value='' required>
-          <input id='password' aria-label='password' class='password' type='password' name='password' placeholder='password' value='' required>
-          <button id='login-button' aria-label='login-button' type='button' class='login-button' name='button'>enter.</button>
+          <input id='userName' aria-label='username' class='user-name' type='text' name='username' placeholder='username' required>
+          <input id='password' aria-label='password' class='password' type='password' name='password' placeholder='password' required>
+          <button id='login-button' type='button' class='login-button button' name='button'>enter.</button>
         </form>
+        <section id='error'>
+
+        </section>
         <form class='trips-view' aria-label='my-trips-account' action='index.html' method='post' id='userMenu'>
           <select class='trip-type' aria-label='trip-view' name='trip-type' id='tripView'>
             <option value='my-account' id='myAccount'>my account.</option>
