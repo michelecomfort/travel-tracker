@@ -91,7 +91,7 @@ const parseData = (data) => {
   session.createDestinationsStorage(data[2].destinations)
   //below functions will move to domManip on click events
 
-  session.getTripCost('Cartagena, Colombia', 7, 2)
+  // session.getTripCost(session, 'Cartagena, Colombia', 7, 2)
   addDestinationSearch()
   // session.getPastTrips(todayDate)
   // changeFormView(session, todayDate)
@@ -167,7 +167,7 @@ const addDestinationSearch = () => {
 
 const showEstimate = () => {
   if (browser.value && startDate.value && numDays.value && guests.value) {
-    let result = session.getTripCost(browser.value, numDays.value, guests.value)
+    let result = session.destinationObj.getTripCost(browser.value, numDays.value, guests.value)
     getEstimate.innerHTML =
     '<p class="estimate-calculation">Your estimate cost would be ' + '$' + result + '.</p>'
     estimateButton.classList.add('hidden')
