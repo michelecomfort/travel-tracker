@@ -6,7 +6,6 @@ import Session from '../src/Session'
 describe('User', function() {
   let user1
   let user2
-  let user3
   let session
   let trip
   let destination
@@ -14,7 +13,6 @@ describe('User', function() {
   beforeEach(function () {
     user1 = new User(traveler[0])
     user2 = new User(traveler[1])
-    user3 = new User(traveler[2])
     session = new Session()
     trip = [{
         'id': 10,

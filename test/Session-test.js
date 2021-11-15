@@ -6,14 +6,12 @@ import Trips from '../src/Trips'
 import Destinations from '../src/Destinations'
 
 describe('Session', function() {
-  let user1
   let session
-  let trip
+  let user1
   let tripsData
   let destinationData
 
   beforeEach(function () {
-    trip = new Trips(tripsData)
     session = new Session(tripsData)
     user1 = traveler[0]
     tripsData = [{

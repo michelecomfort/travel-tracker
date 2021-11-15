@@ -5,23 +5,17 @@ import User from '../src/User'
 import Session from '../src/Session'
 
 describe('Trips', function() {
-  let tripsData
-  let trip
   let trip1
   let todayDate
   let user1
   let session
-  // let trip2
-  // let trip3
+  let tripsData
 
   beforeEach(function () {
-    trip = new Trips()
     trip1 = new Trips(trips[0])
     todayDate = new Date().toISOString().slice(0, 10).replaceAll('-', '/')
     user1 = user1 = new User(traveler[0])
     session = new Session()
-    // trip2 = new Trips(trips[1])
-    // trip3 = new Trips(trips[2])
     tripsData = [{
       'id': 10,
       'userID': 1,

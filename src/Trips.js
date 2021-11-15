@@ -12,7 +12,6 @@ export default class Trips {
         return trip
       }
   })
-  console.log(result)
   return result
 }
 
