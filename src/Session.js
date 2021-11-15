@@ -35,22 +35,4 @@ export default class Session {
     return this.destinationData
   }
 
-  // getUpcomingTrips(todayDate) {
-  //   let date1 = new Date(todayDate)
-  //   let result = this.userTripsData.filter(trip => {
-  //     let date2 = new Date(trip.date)
-  //     if (date2 > date1  && trip.status === 'approved') {
-  //       return trip
-  //     }
-  //   })
-  //   return result
-  // }
-
-  getPendingTrips() {
-    let result = this.userTripsData.filter(trip => {
-      return trip.status ==='pending'
-    })
-      return result
-  }
-
 }

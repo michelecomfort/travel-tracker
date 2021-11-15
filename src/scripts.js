@@ -39,20 +39,20 @@ import './images/Bangkok-Thailand.png'
 
 
 import { fetchUserData, fetchData, postData} from './fetch'
-// import { changeFormView, displayPastTrips, displayUpcomingTrips, displayPendingTrips } from './domManipulation'
+import { changeFormView, displayTrips } from './domManipulation'
 import Session from './Session'
 
 const session = new Session()
-const todayDate = new Date().toISOString().slice(0, 10).replaceAll('-', '/')
+// const todayDate = new Date().toISOString().slice(0, 10).replaceAll('-', '/')
 const userName = document.querySelector('#userName')
 const loginButton = document.querySelector('#login-button')
 const pastTrips = document.querySelector('#pastTrips')
 const upcomingTrips = document.querySelector('#upcomingTrips')
 const pendingTrips = document.querySelector('#pendingTrips')
-const tripView = document.querySelector('#tripView')
+// const tripView = document.querySelector('#tripView')
 const userMenu = document.querySelector('#userMenu')
-const bottomHeading = document.querySelector('#bottomHeading')
-const destinationsSection = document.querySelector('#destinations')
+// const bottomHeading = document.querySelector('#bottomHeading')
+// const destinationsSection = document.querySelector('#destinations')
 const browsers = document.querySelector('#browsers')
 const startDate = document.querySelector('#startDate')
 const guests = document.querySelector('#guests')
@@ -73,8 +73,8 @@ const retrieveUser = () => {
 
 
 }
-loginButton.addEventListener('click', retrieveUser)
 
+loginButton.addEventListener('click', retrieveUser)
 
 const retrieveAllData = (id) => {
   Promise.all([fetchUserData(id), fetchData('trips'), fetchData('destinations')]).then(data => {
@@ -90,73 +90,67 @@ const parseData = (data) => {
   session.createTripsStorage(data[1].trips)
   session.createDestinationsStorage(data[2].destinations)
   //below functions will move to domManip on click events
-
-  // session.getTripCost(session, 'Cartagena, Colombia', 7, 2)
   addDestinationSearch()
-  // session.getPastTrips(todayDate)
   // changeFormView(session, todayDate)
-  // displayPastTrips()
-  // session.getUpcomingTrips(todayDate)
-  // toggleView()
   // renderDom(data)
 }
 
 
 
-const changeFormView = () => {
-  switch (tripView.value) {
-  case 'past':
-    let past = session.userTripsObj.getPastTrips(todayDate)
-    displayTrips(past, tripView.value)
-    break;
-  case 'upcoming':
-    let upcoming = session.userTripsObj.getUpcomingTrips(todayDate)
-    displayTrips(upcoming, tripView.value)
-    break;
-  case 'pending':
-    let pending = session.userTripsObj.getPendingTrips()
-    displayTrips(pending, tripView.value)
-    break;
-  case 'expenses':
-    let expenses = session.user.getTotalDollarSpentThisYear(session)
-    console.log('hello there')
-    displayExpenses(expenses)
-    break;
-  default:
-    console.log('something went wrong');
-    break;
-  }
-};
+// const changeFormView = () => {
+//   switch (tripView.value) {
+//   case 'past':
+//     let past = session.userTripsObj.getPastTrips(todayDate)
+//     displayTrips(past, tripView.value)
+//     break;
+//   case 'upcoming':
+//     let upcoming = session.userTripsObj.getUpcomingTrips(todayDate)
+//     displayTrips(upcoming, tripView.value)
+//     break;
+//   case 'pending':
+//     let pending = session.userTripsObj.getPendingTrips()
+//     displayTrips(pending, tripView.value)
+//     break;
+//   case 'expenses':
+//     let expenses = session.user.getTotalDollarSpentThisYear(session)
+//     console.log('hello there')
+//     displayExpenses(expenses)
+//     break;
+//   default:
+//     console.log('something went wrong');
+//     break;
+//   }
+// };
 
-const displayTrips = (trips, value) => {
-  // glider.classList.add('hidden')
-  if (trips.length > 0) {
-    bottomHeading.innerHTML =
-    '<h2>my ' + value + ' trips</h2>'
-    destinationsSection.innerHTML = ''
-    trips.forEach(trip => {
-      session.destinationData.forEach(dest => {
-        if (trip.destinationID === dest.id) {
-          destinationsSection.innerHTML += `
-          <section class='trips-display'>
-          <h4>${dest.destination}</h4>
-          <p>${trip.date}</p>
-          </section>  `
-        }
-      })
-    })
-  } else {
-    bottomHeading.innerHTML = '<p>You have no ' + value + ' trips at this time.</p>'
-    destinationsSection.innerHTML = ''
-  }
-}
+// const displayTrips = (trips, value) => {
+//   // glider.classList.add('hidden')
+//   if (trips.length > 0) {
+//     bottomHeading.innerHTML =
+//     '<h2>my ' + value + ' trips</h2>'
+//     destinationsSection.innerHTML = ''
+//     trips.forEach(trip => {
+//       session.destinationData.forEach(dest => {
+//         if (trip.destinationID === dest.id) {
+//           destinationsSection.innerHTML += `
+//           <section class='trips-display'>
+//           <h4>${dest.destination}</h4>
+//           <p>${trip.date}</p>
+//           </section>  `
+//         }
+//       })
+//     })
+//   } else {
+//     bottomHeading.innerHTML = '<p>You have no ' + value + ' trips at this time.</p>'
+//     destinationsSection.innerHTML = ''
+//   }
+// }
 
-const displayExpenses = (expenses) => {
-  destinationsSection.innerHTML = ''
-  bottomHeading.innerHTML = '<h2>Yearly Expenses</h2>'
-  destinationsSection.innerHTML +=
-  '<h4>This year you have spent a total of $' + expenses + ' on fun excursions!</h4>'
-}
+// const displayExpenses = (expenses) => {
+//   destinationsSection.innerHTML = ''
+//   bottomHeading.innerHTML = '<h2>Yearly Expenses</h2>'
+//   destinationsSection.innerHTML +=
+//   '<h4>This year you have spent a total of $' + expenses + ' on fun excursions!</h4>'
+// }
 
 const addDestinationSearch = () => {
   session.destinationData.forEach(dest => {
@@ -229,4 +223,6 @@ const addTripToPending = (location, date) => {
 
 bookButton.addEventListener('click', bookTrip)
 estimateButton.addEventListener('click', showEstimate)
-userMenu.addEventListener('change', changeFormView)
+userMenu.addEventListener('change', function() {
+  changeFormView(session)
+})
