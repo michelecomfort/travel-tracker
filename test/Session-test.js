@@ -3,15 +3,15 @@ import { assert } from 'chai'
 import Session from '../src/Session'
 import User from '../src/User'
 import Trips from '../src/Trips'
+import Destinations from '../src/Destinations'
 
 describe('Session', function() {
-  let user1
   let session
-  let trip
+  let user1
   let tripsData
+  let destinationData
 
   beforeEach(function () {
-    trip = new Trips(tripsData)
     session = new Session(tripsData)
     user1 = traveler[0]
     tripsData = [{
@@ -45,6 +45,14 @@ describe('Session', function() {
       'suggestActivities': []
     },]
 
+    destinationData = [{
+      'id': 4,
+      'destination': 'Cartagena, Colombia',
+      'estimatedLodgingCostPerDay': 65,
+      'estimatedFlightCostPerPerson': 350,
+      'image': 'https://images.unsplash.com/photo-1558029697-a7ed1a4b94c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
+      'alt': 'boats at a dock during the day time'
+      }]
   })
 
   it('should be a function', function() {
@@ -59,14 +67,15 @@ describe('Session', function() {
     assert.deepEqual(session.retrieveUser(user1), user1)
   })
 
-  it('should have user start off as not logged in', function() {
-    assert.equal(session.isLoggedIn, false)
-  })
-
   it('should have a method to create a new instance of Trips', function() {
     session.retrieveUser(user1)
-    console.log(tripsData)
-    assert.instanceOf(session.createTripsStorage(tripsData), Trips)
+    assert.deepEqual(session.createTripsStorage(tripsData), tripsData)
+    assert.instanceOf(session.userTripsObj, Trips)
+  })
+
+  it('should have a method to create a new instance of Destinations', function() {
+    assert.deepEqual(session.createDestinationsStorage(destinationData), destinationData)
+    assert.instanceOf(session.destinationObj, Destinations)
   })
 
 
