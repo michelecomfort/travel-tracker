@@ -37,7 +37,7 @@ p {
 }
 
 .travel-title {
-  color: #062C19;
+  color: #052414;
   display: flex;
   font-size: 60px;
   margin-left: 8%;
@@ -73,7 +73,7 @@ h3 {
 }
 
 .book-getaway-heading {
-  color: #062C19;
+  color: #052414;
   display: flex;
   font-size: 19px;
   margin-left: 6%;
@@ -134,6 +134,10 @@ h3 {
   margin-left: 4%;
   padding: 1% 2%;
   // height: 50%;
+}
+
+.button:hover {
+  color: blue;
 }
 
 .estimate-button {
