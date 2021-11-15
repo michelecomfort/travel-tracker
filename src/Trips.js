@@ -2,9 +2,6 @@
 export default class Trips {
   constructor(trips) {
     this.trips = trips
-    this.pastTrips = []
-    this.futureTrips
-    this.pendingTrips = []
   }
 
   getTripStatus() {
@@ -52,5 +49,4 @@ export default class Trips {
     })
       return result
   }
-
 }

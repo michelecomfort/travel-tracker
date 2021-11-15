@@ -14,5 +14,4 @@ export default class Destinations {
     result += agentFee
     return result
   }
-  
 }

@@ -1,13 +1,8 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
-
 import Glide from '@glidejs/glide';
 import { Breakpoints } from '@glidejs/glide/dist/glide.modular.esm';
 // import Glide, { Breakpoints } from '@glidejs/glide/dist/glide.modular.esm';
-
 
 new Glide('.glide', {
   type: 'carousel',
@@ -22,7 +17,6 @@ new Glide('.glide', {
     perView: 2
   }
 },
-
 }).mount()
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)

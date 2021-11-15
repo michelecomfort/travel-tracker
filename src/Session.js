@@ -4,7 +4,6 @@ import Destinations from '../src/Destinations'
 
 export default class Session {
   constructor() {
-    this.isLoggedIn = false;
     this.user
     this.allTripsData
     this.userTripsObj
@@ -27,7 +26,7 @@ export default class Session {
     this.userTripsObj = new Trips(trips)
     this.userTripsData = this.userTripsObj.trips
     return this.userTripsData
-}
+  }
 
   createDestinationsStorage(destinationData) {
     this.destinationObj = new Destinations(destinationData)
