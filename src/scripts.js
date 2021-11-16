@@ -11,11 +11,6 @@ new Glide('.glide', {
   gap: 20,
   hoverpause: true,
   keyboard: true,
-  breakpoints: {
-  800: {
-    perView: 2
-  }
-},
 }).mount()
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
@@ -28,8 +23,8 @@ import './images/Reykyavik-Iceland.png'
 import './images/Wellington-NewZealand.png'
 import './images/Bangkok-Thailand.png'
 
-import { fetchUserData, fetchData, postData} from './fetch'
-import { changeFormView, displayTrips, displayExpenses, addDestinationSearch, showEstimate, bookTrip, getDestinationID, formatDate, greetUser, postTrip, bookingConfirmation, addHidden, removeHidden } from './domManipulation'
+import { fetchUserData, fetchData } from './fetch'
+import { changeFormView, addDestinationSearch, showEstimate, bookTrip, greetUser } from './domManipulation'
 import Session from './Session'
 
 const session = new Session()
@@ -39,7 +34,6 @@ const loginButton = document.querySelector('#login-button')
 const userMenu = document.querySelector('#userMenu')
 const password = document.querySelector('#password')
 const error = document.querySelector('#error')
-const greeting = document.querySelector('#greeting')
 const bookButton = document.querySelector('#bookButton')
 const estimateButton = document.querySelector('#estimateButton')
 

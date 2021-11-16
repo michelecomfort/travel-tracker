@@ -46,7 +46,7 @@ describe('Trips', function() {
       'status': 'approved',
       'suggestActivities': []
     },
-  ]
+    ]
   })
 
   it('should be a function', function() {
@@ -84,7 +84,7 @@ describe('Trips', function() {
       'duration': 7,
       'status': 'approved',
       'suggestActivities': []
-      }])
+    }])
   })
 
   it('should get all user pending trips', function() {
@@ -99,6 +99,6 @@ describe('Trips', function() {
       'duration': 4,
       'status': 'pending',
       'suggestActivities': []
-      }])
+    }])
   })
 })

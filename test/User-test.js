@@ -23,7 +23,7 @@ describe('User', function() {
       'duration': 5,
       'status': 'approved',
       'suggestActivities': []
-      }]
+    }]
 
     destination = [{
       'id': 4,

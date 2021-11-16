@@ -43,7 +43,7 @@ describe('Session', function() {
       'status': 'approved',
       'suggestActivities': []
     },
-  ]
+    ]
 
     destinationData = [{
       'id': 4,
