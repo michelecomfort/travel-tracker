@@ -18,6 +18,7 @@ const numDays = document.querySelector('#numDays')
 const greeting = document.querySelector('#greeting')
 const userTripsDisplay = document.querySelector('#userTripsDisplay')
 
+
 const greetUser = (session) => {
   let name = session.user.returnFirstName()
   greeting.innerHTML =
@@ -171,5 +172,5 @@ export {
   addTripToPending,
   greetUser,
   postTrip,
-  bookingConfirmation
+  bookingConfirmation,
 }
