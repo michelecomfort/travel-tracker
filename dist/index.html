@@ -18,10 +18,12 @@
           <input id='password' aria-label='password' class='password' type='password' name='password' placeholder='password' required>
           <button id='login-button' type='button' class='login-button button' name='button'>enter.</button>
         </form>
-        <section id='error'>
-
+        <section class='greeting' id='greeting'>
+          <!-- <h2>welcome back.</h2> -->
         </section>
-        <form class='trips-view' aria-label='my-trips-account' action='index.html' method='post' id='userMenu'>
+        <section id='error'>
+        </section>
+        <form class='trips-view hidden' aria-label='my-trips-account' action='index.html' method='post' id='userMenu'>
           <select class='trip-type' aria-label='trip-view' name='trip-type' id='tripView'>
             <option value='my-account' id='myAccount'>my account.</option>
             <option value='past' aria-label='past-trips' id='pastTrips'>past trips.</option>
@@ -36,7 +38,7 @@
     </section>
     <section class='get-estimate' id='getEstimate'>
     </section>
-    <section class='book-trip'>
+    <section class='book-trip hidden' id='bookTripBar'>
       <input placeholder='destination' aria-label='destination-select' list='browsers' name='myBrowser' class='destination-dropdown' id='browser'>
         <datalist id='browsers'>
         </datalist>

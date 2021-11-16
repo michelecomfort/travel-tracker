@@ -1,8 +1,9 @@
 import { postData } from './fetch';
-import { retrieveAllData } from './scripts';
+import { retrieveAllData, toggleHidden } from './scripts';
 //
 const tripView = document.querySelector('#tripView')
 const todayDate = new Date().toISOString().slice(0, 10).replaceAll('-', '/')
+const bookTripBar = document.querySelector('#bookTripBar')
 const destinationsSection = document.querySelector('#destinations')
 const bottomHeading = document.querySelector('#bottomHeading')
 const browsers = document.querySelector('#browsers')
@@ -14,6 +15,16 @@ const glider = document.querySelector('#gliderSection')
 const startDate = document.querySelector('#startDate')
 const guests = document.querySelector('#guests')
 const numDays = document.querySelector('#numDays')
+const greeting = document.querySelector('#greeting')
+
+const greetUser = (session) => {
+  let name = session.user.returnFirstName()
+  greeting.innerHTML =
+  '<h2>welcome back ' + name + '.</h2>'
+  toggleHidden(userMenu)
+  toggleHidden(bookTripBar)
+}
+
 
 ////my account menu
 const changeFormView = (session) => {
@@ -43,7 +54,7 @@ const changeFormView = (session) => {
 const displayTrips = (session, trips, value) => {
   if (trips.length > 0) {
     bottomHeading.innerHTML =
-    '<h2>my ' + value + ' trips</h2>'
+    '<h3>my ' + value + ' trips</h3>'
     destinationsSection.innerHTML = ''
     trips.forEach(trip => {
       session.destinationData.forEach(dest => {
@@ -57,7 +68,7 @@ const displayTrips = (session, trips, value) => {
       })
     })
   } else {
-    bottomHeading.innerHTML = '<p>You have no ' + value + ' trips at this time.</p>'
+    bottomHeading.innerHTML = '<h3>You have no ' + value + ' trips at this time.</h3>'
     destinationsSection.innerHTML = ''
   }
 }
@@ -66,7 +77,7 @@ const displayExpenses = (expenses) => {
   destinationsSection.innerHTML = ''
   bottomHeading.innerHTML = '<h2>Yearly Expenses</h2>'
   destinationsSection.innerHTML +=
-  '<h4>This year you have spent a total of $' + expenses + ' on fun excursions!</h4>'
+  '<h3>This year you have spent a total of $' + expenses + ' on fun excursions!</h3>'
 }
 
 ///////book trip section
@@ -139,5 +150,6 @@ export {
   bookTrip,
   getDestinationID,
   formatDate,
-  addTripToPending
+  addTripToPending,
+  greetUser
 }

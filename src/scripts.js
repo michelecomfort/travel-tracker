@@ -30,7 +30,7 @@ import './images/Wellington-NewZealand.png'
 import './images/Bangkok-Thailand.png'
 
 import { fetchUserData, fetchData, postData} from './fetch'
-import { changeFormView, displayTrips, displayExpenses, addDestinationSearch, showEstimate, bookTrip, getDestinationID, formatDate } from './domManipulation'
+import { changeFormView, displayTrips, displayExpenses, addDestinationSearch, showEstimate, bookTrip, getDestinationID, formatDate, greetUser} from './domManipulation'
 import Session from './Session'
 
 const session = new Session()
@@ -40,20 +40,36 @@ const loginButton = document.querySelector('#login-button')
 const userMenu = document.querySelector('#userMenu')
 const password = document.querySelector('#password')
 const error = document.querySelector('#error')
+const greeting = document.querySelector('#greeting')
+
 loginButton.addEventListener('click', function() {
   login()
+})
+bookButton.addEventListener('click', function() {
+  bookTrip(session)
+})
+estimateButton.addEventListener('click', function() {
+  showEstimate(session)
+})
+userMenu.addEventListener('change', function() {
+  changeFormView(session)
 })
 
 function login() {
   let loginID = userName.value.split('').splice(8, 2).join('')
   if (userName.value === `traveler${loginID}` && password.value === 'travel') {
     retrieveAllData(loginID)
-    // error.innerHTML += ''
+    toggleHidden(error)
+    toggleHidden(loginForm)
+
   } else {
     error.innerHTML +=
     '<p class="login-message">Sorry, there is an error with your username and password. Please try again.</p>'
-
   }
+}
+
+const toggleHidden = (element) => {
+  element.classList.toggle('hidden')
 }
 
 const retrieveAllData = (id) => {
@@ -69,21 +85,11 @@ const parseData = (data) => {
   session.createTripsStorage(data[1].trips)
   session.createDestinationsStorage(data[2].destinations)
   addDestinationSearch(session)
+  greetUser(session)
+  // renderDom(session)
 }
 
-bookButton.addEventListener('click', function() {
-  bookTrip(session)
-})
-estimateButton.addEventListener('click', function() {
-  showEstimate(session)
-})
-userMenu.addEventListener('change', function() {
-  changeFormView(session)
-})
-
-
-
-
 export {
-  retrieveAllData
+  retrieveAllData,
+  toggleHidden
 }
