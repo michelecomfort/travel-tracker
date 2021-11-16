@@ -36,6 +36,10 @@ p {
   text-align: center;
 }
 
+.login-message {
+  width: 50%;
+}
+
 .travel-title {
   color: #052414;
   display: flex;
@@ -52,6 +56,13 @@ nav {
 
 h3 {
   padding: 1%;
+}
+
+.login-container{
+  display:flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: 60px;
 }
 
 .login {
