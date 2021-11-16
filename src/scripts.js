@@ -30,7 +30,7 @@ import './images/Wellington-NewZealand.png'
 import './images/Bangkok-Thailand.png'
 
 import { fetchUserData, fetchData, postData} from './fetch'
-import { changeFormView, displayTrips, displayExpenses, addDestinationSearch, showEstimate, bookTrip, getDestinationID, formatDate, greetUser, postTrip } from './domManipulation'
+import { changeFormView, displayTrips, displayExpenses, addDestinationSearch, showEstimate, bookTrip, getDestinationID, formatDate, greetUser, postTrip, bookingConfirmation } from './domManipulation'
 import Session from './Session'
 
 const session = new Session()

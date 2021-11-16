@@ -9,17 +9,15 @@ body {
 }
 
 * {
-  // border: 1px solid gray;
   margin: 0;
 }
-//Header
+
 header {
   background-image: url('../images/suitcase.png');
   background-position: top;
   background-size: 100%;
   background-repeat: no-repeat;
   height: 395px;
-
 }
 
 .dest-image {
@@ -29,14 +27,10 @@ header {
   min-height: 100%;
   min-width: 80%;
   margin-left: 18%;
-
-}
-
-p {
-  text-align: center;
 }
 
 .login-message {
+  text-align: center;
   width: 50%;
 }
 
@@ -44,18 +38,13 @@ p {
   color: #052414;
   display: flex;
   font-size: 60px;
-  margin-left: 8%;
-  margin-top: 5%;
+  margin: 5% 0 0 8%;
 }
 
 nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-h3 {
-  padding: 1%;
 }
 
 .login-container{
@@ -69,8 +58,7 @@ h3 {
   display: flex;
   flex-direction: row;
   height: 30px;
-  margin-left: 10%;
-  margin-top: 2%;
+  margin: 2% 0 0 10%;
 }
 .greeting {
   margin-top: 1.5%;
@@ -81,8 +69,7 @@ h3 {
 .trips-view {
   display: flex;
   height: 40px;
-  margin-right: 4%;
-  margin-top: 2%;
+  margin: 2% 4% 0 0;
   width: 10%;
 }
 
@@ -90,20 +77,19 @@ h3 {
   color: #052414;
   display: flex;
   font-size: 19px;
-  margin-left: 6%;
-  margin-top: 4%;
-  margin-bottom: 2%;
+  margin: 4% 0 2% 6%;
   text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
   width: 150px;
 }
 
 .book-trip {
   background-color: #D3EFE9;
+  border-radius: 30px;
   display: flex;
+  flex-wrap: wrap;
   margin-left: 2%;
   padding: 1.5%;
   width: 50%;
-  border-radius: 30px;
 }
 
 .days,
@@ -121,21 +107,20 @@ h3 {
 
 .start-date,
 .destination-dropdown {
-  width: 50%;
+  height: 38px;
   min-width: 30%;
+  width: 180px;
 }
 
 .days,
 .guests {
-  width: 25%;
-  // min-width: 20%;
+  width: 54px;
 }
 
 .estimate-calculation {
   display: flex;
   font-size: larger;
-  margin-left: 18%;
-  margin-top: 1%;
+  margin: 1% 0 0 18%;
   padding: 0% 1% 1%;
 }
 
@@ -149,16 +134,16 @@ h3 {
   line-height: 18px;
   margin-left: 4%;
   padding: 1% 2%;
-  // height: 50%;
 }
 
 .button:hover {
-  color: blue;
+  background-color: #ffffff;
+  color: #FE395C;
 }
 
 .estimate-button {
   height: 50%;
-  width: 20%;
+  width: 78px;
 }
 
 .book-button {
@@ -168,6 +153,7 @@ h3 {
 //------------> Bottom section
 
 .bottom-heading {
+  padding: 1%;
   text-align: center;
 }
 
@@ -187,25 +173,49 @@ h3 {
 .trips-display {
   color: black;
   display: grid;
-  // display: flex;
-  // flex-wrap: wrap;
   margin-bottom: 20px;
-  // height: 185px;
   text-align: center;
+}
 
+.trip-location,
+.trip-date {
+  margin-top: 6px;
 }
 
 .trips-img {
-  // width: 30px;
   height: 250px;
   border-radius: 5px;
-  // max-height: 100%;
   max-width: 80%;
-  // min-height: 100%;
   min-width: 80%;
   margin-left: 10%;
 }
 
+.expenses-message {
+  margin-left: 97%;
+  text-align: center;
+  width: 100%;
+}
+
 .hidden {
   display:none;
+}
+
+@media screen and (min-width: 1990px) {
+  .user-trips-display {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .user-trips-display  {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .user-trips-display  {
+    grid-template-columns: 1fr;
+  }
+
+
 }

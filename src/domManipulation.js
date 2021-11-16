@@ -18,7 +18,6 @@ const numDays = document.querySelector('#numDays')
 const greeting = document.querySelector('#greeting')
 const userTripsDisplay = document.querySelector('#userTripsDisplay')
 
-
 const greetUser = (session) => {
   let name = session.user.returnFirstName()
   greeting.innerHTML =
@@ -27,8 +26,6 @@ userMenu.classList.remove('hidden')
   bookTripBar.classList.remove('hidden')
 }
 
-
-////my account menu
 const changeFormView = (session) => {
   switch (tripView.value) {
   case 'past':
@@ -66,8 +63,8 @@ const displayTrips = (session, trips, value) => {
           userTripsDisplay.innerHTML += `
           <section class='trips-display'>
           <img class='trips-img'src='${dest.image}'>
-          <h4>${dest.destination}</h4>
-          <p>${trip.date}</p>
+          <h4 class='trip-location'>${dest.destination}</h4>
+          <p class='trip-date'>${trip.date}</p>
           </section>`
         }
       })
@@ -82,12 +79,11 @@ const displayExpenses = (expenses) => {
   destinations.classList.add('hidden')
   userTripsDisplay.classList.remove('hidden')
   userTripsDisplay.innerHTML = ''
-  bottomHeading.innerHTML = '<h2>Yearly Expenses</h2>'
+  bottomHeading.innerHTML = '<h2>yearly expenses</h2>'
   userTripsDisplay.innerHTML +=
-  '<h3>This year you have spent a total of $' + expenses + ' on fun excursions!</h3>'
+  '<h3 class="expenses-message">This year you have spent a total of $' + expenses + ' on fun excursions!</h3>'
 }
 
-///////book trip section
 const addDestinationSearch = (session) => {
   session.destinationData.forEach(dest => {
     browsers.innerHTML += `
@@ -125,7 +121,7 @@ const postTrip = (data, session) => {
       let pending = session.userTripsObj.getPendingTrips()
       displayTrips(session, pending, 'pending')
       tripView.value = 'pending'
-      bookingConfirmation();
+      bookingConfirmation()
     })
   })
 }
@@ -135,7 +131,7 @@ const bookingConfirmation = () => {
   '<p class="estimate-calculation">Exciting! Your travel agent will review your trip shortly.</p>'
   setTimeout(() => {
     getEstimate.innerHTML = ''
-    }, 4000);
+    }, 4000)
     toggleHidden(estimateButton)
     toggleHidden(bookButton)
 }
@@ -158,8 +154,8 @@ const addTripToPending = (location, date) => {
   destinations.classList.add('hidden')
   destinationsSection.innerHTML += `
   <section class='trips-display'>
-  <h4>${location}</h4>
-  <p>${date}</p>
+  <h4 class='trip-location'>${location}</h4>
+  <p class='trip-date'>${date}</p>
   </section>`
 }
 
@@ -174,5 +170,6 @@ export {
   formatDate,
   addTripToPending,
   greetUser,
-  postTrip
+  postTrip,
+  bookingConfirmation
 }
