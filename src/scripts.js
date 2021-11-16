@@ -36,6 +36,11 @@ const password = document.querySelector('#password')
 const error = document.querySelector('#error')
 const bookButton = document.querySelector('#bookButton')
 const estimateButton = document.querySelector('#estimateButton')
+const startDate = document.querySelector('#startDate')
+
+const minimumCalendarDate = () => {
+  startDate.min = new Date().toISOString().substr(0, 10)
+}
 
 const destImage = document.querySelector('.glide__track')
 destImage.addEventListener('mouseover', function(event) {
@@ -91,6 +96,8 @@ const parseData = (data) => {
   addDestinationSearch(session)
   greetUser(session)
 }
+
+minimumCalendarDate()
 
 export {
   retrieveAllData,
