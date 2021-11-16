@@ -43,6 +43,16 @@ const error = document.querySelector('#error')
 const greeting = document.querySelector('#greeting')
 const bookButton = document.querySelector('#bookButton')
 
+const destImage = document.querySelector('.glide__track')
+destImage.addEventListener('mouseover', function(event) {
+  console.log(event.target.nextElementSibling.classList)
+  if (event.target.classList.contains('dest-image')) {
+    const destLocation = event.target.nextElementSibling
+    console.log(destLocation)
+    destLocation.classList.remove('dest-name-hidden')
+  }
+})
+
 loginButton.addEventListener('click', function() {
   login()
 })

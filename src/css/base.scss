@@ -1,5 +1,7 @@
 /* This is an example of how to import a partial scss file*/
 @import '_variables';
+@import '_mixin';
+
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
 @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
 
@@ -15,81 +17,112 @@ body {
 header {
   background-image: url('../images/suitcase.png');
   background-position: top;
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
-  height: 395px;
-}
-
-.dest-image {
-  border-radius: 5px;
-  max-height: 100%;
-  max-width: 80%;
-  min-height: 100%;
-  min-width: 80%;
-  margin-left: 18%;
+  height: 450px;
 }
 
 .login-message {
+  @include width(50%)
+}
+
+.login-message,
+.days,
+.guests,
+.start-date,
+.destination-dropdown,
+.user-name,
+.password,
+.trip-type,
+.bottom-title,
+.trips-display,
+.expenses-message {
   text-align: center;
-  width: 50%;
 }
 
-.travel-title {
-  color: #052414;
-  display: flex;
-  font-size: 60px;
-  margin: 5% 0 0 8%;
+.top-nav,
+.travel-title,
+.login,
+.trips-view,
+.book-getaway-heading,
+.book-trip,
+.estimate-calculation,
+.destinations {
+  @include flex(row)
 }
 
-nav {
-  display: flex;
+.top-nav {
   flex-direction: row;
   justify-content: space-between;
+
+  .travel-title {
+    color: $deepGreen;
+    font-size: 60px;
+    margin: 5% 0 0 8%;
+  }
 }
 
-.login-container{
+.login-container {
   display:flex;
   flex-direction: column;
-  width: 80%;
   margin-left: 60px;
+  @include width(80%);
+
+  .login {
+    flex-direction: row;
+    height: 30px;
+    margin: 2% 0 0 10%;
+  }
 }
 
-.login {
-  display: flex;
-  flex-direction: row;
-  height: 30px;
-  margin: 2% 0 0 10%;
-}
 .greeting {
-  margin-top: 1.5%;
-  width: 35%;
-
+  margin-top: 3%;
+  @include width(35%)
 }
 
 .trips-view {
-  display: flex;
   height: 40px;
   margin: 2% 4% 0 0;
-  width: 10%;
+  @include width(10%)
 }
 
 .book-getaway-heading {
-  color: #052414;
-  display: flex;
-  font-size: 19px;
+  color: $deepGreen;
+  font-size: 22px;
   margin: 4% 0 2% 6%;
   text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-  width: 150px;
+  @include width(174px);
 }
 
 .book-trip {
   background-color: #D3EFE9;
   border-radius: 30px;
-  display: flex;
   flex-wrap: wrap;
   margin-left: 2%;
   padding: 1.5%;
-  width: 50%;
+  @include width(50%);
+
+  .start-date,
+  .destination-dropdown {
+    height: 38px;
+    min-width: 30%;
+    @include width(180px);
+  }
+
+  .days,
+  .guests {
+    @include width(54px);
+  }
+
+  .estimate-button {
+    height: 50%;
+    @include width(78px);
+  }
+
+  .book-button {
+    height: 50%;
+    @include width(10%);
+  }
 }
 
 .days,
@@ -100,25 +133,11 @@ nav {
 .password,
 .trip-type {
   border: none;
-  border-radius: 6px;
   margin: 3px;
-  text-align: center;
-}
-
-.start-date,
-.destination-dropdown {
-  height: 38px;
-  min-width: 30%;
-  width: 180px;
-}
-
-.days,
-.guests {
-  width: 54px;
+  @include border-radius(6px);
 }
 
 .estimate-calculation {
-  display: flex;
   font-size: larger;
   margin: 1% 0 0 18%;
   padding: 0% 1% 1%;
@@ -126,74 +145,77 @@ nav {
 
 .button,
 .login-button {
-  background-color: #FE395C;
+  background-color: $magenta;
   border: none;
-  border-radius: 6px;
-  color: #ffffff;
+  color: $white;
   font-weight: 700;
   line-height: 18px;
   margin-left: 4%;
-  padding: 1% 2%;
+  padding: .7% 2%;
+  @include border-radius(6px)
 }
 
 .button:hover {
-  background-color: #ffffff;
-  color: #FE395C;
+  background-color: $white;
+  color: $magenta;
 }
 
-.estimate-button {
-  height: 50%;
-  width: 78px;
-}
-
-.book-button {
-  height: 50%;
-  width: 10%;
-}
-//------------> Bottom section
-
-.bottom-heading {
+.bottom-title {
+  font-size: 15;
   padding: 1%;
-  text-align: center;
 }
 
 .destinations {
-  height: 42%;
-  width: 95%;
-  display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  overflow: scroll;
 }
+
+.dest-image {
+  max-height: 80%;
+  max-width: 80%;
+  min-height: 60%;
+  min-width: 80%;
+  margin-left: 11%;
+  @include border-radius(5px);
+
+  .dest-name-hidden {
+    visibility: hidden;
+    margin-left: 10px;
+  }
+
+  .img-description {
+    margin-left: 35%;
+  }
+}
+
 
 .user-trips-display {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-}
-.trips-display {
-  color: black;
-  display: grid;
-  margin-bottom: 20px;
-  text-align: center;
-}
 
-.trip-location,
-.trip-date {
-  margin-top: 6px;
-}
+  .trips-display {
+    color: black;
+    display: grid;
+    margin-bottom: 20px;
+  }
 
-.trips-img {
-  height: 250px;
-  border-radius: 5px;
-  max-width: 80%;
-  min-width: 80%;
-  margin-left: 10%;
+  .trip-location,
+  .trip-date {
+    margin-top: 6px;
+  }
+
+  .trips-img {
+    height: 250px;
+    max-width: 80%;
+    min-width: 80%;
+    margin-left: 10%;
+    @include border-radius(5px)
+  }
 }
 
 .expenses-message {
   margin-left: 97%;
-  text-align: center;
-  width: 100%;
+  @include width(100%)
 }
 
 .hidden {
@@ -216,6 +238,4 @@ nav {
   .user-trips-display  {
     grid-template-columns: 1fr;
   }
-
-
 }
