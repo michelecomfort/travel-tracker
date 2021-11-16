@@ -17,8 +17,8 @@ body {
 header {
   background-image: url('../images/suitcase.png');
   background-position: top;
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
   height: 450px;
 }
 
@@ -171,23 +171,22 @@ header {
 }
 
 .dest-image {
+  margin-left: 11%;
   max-height: 80%;
   max-width: 80%;
   min-height: 60%;
   min-width: 80%;
-  margin-left: 11%;
   @include border-radius(5px);
-
-  .dest-name-hidden {
-    visibility: hidden;
-    margin-left: 10px;
-  }
-
-  .img-description {
-    margin-left: 35%;
-  }
 }
 
+.img-description {
+  margin-left: 35%;
+}
+
+.dest-name-hidden {
+  margin-left: 10px;
+  visibility: hidden;
+}
 
 .user-trips-display {
   display: grid;
@@ -206,9 +205,9 @@ header {
 
   .trips-img {
     height: 250px;
+    margin-left: 10%;
     max-width: 80%;
     min-width: 80%;
-    margin-left: 10%;
     @include border-radius(5px)
   }
 }
