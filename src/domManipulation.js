@@ -18,13 +18,20 @@ const numDays = document.querySelector('#numDays')
 const greeting = document.querySelector('#greeting')
 const userTripsDisplay = document.querySelector('#userTripsDisplay')
 
+const removeHidden = (element) => {
+  element.classList.remove('hidden')
+}
+
+const addHidden = (element) => {
+  element.classList.add('hidden')
+}
 
 const greetUser = (session) => {
   let name = session.user.returnFirstName()
   greeting.innerHTML =
   '<h2>welcome back ' + name + '.</h2>'
-userMenu.classList.remove('hidden')
-  bookTripBar.classList.remove('hidden')
+  removeHidden(userMenu)
+  removeHidden(bookTripBar)
 }
 
 const changeFormView = (session) => {
@@ -52,11 +59,11 @@ const changeFormView = (session) => {
 }
 
 const displayTrips = (session, trips, value) => {
-  userTripsDisplay.classList.remove('hidden')
+  removeHidden(userTripsDisplay)
   if (trips.length > 0) {
     bottomHeading.innerHTML =
     '<h3>my ' + value + ' trips</h3>'
-    destinations.classList.add('hidden')
+    addHidden(destinations)
     userTripsDisplay.innerHTML = ''
     trips.forEach(trip => {
       session.destinationData.forEach(dest => {
@@ -77,8 +84,8 @@ const displayTrips = (session, trips, value) => {
 }
 
 const displayExpenses = (expenses) => {
-  destinations.classList.add('hidden')
-  userTripsDisplay.classList.remove('hidden')
+  addHidden(destinations)
+  removeHidden(userTripsDisplay)
   userTripsDisplay.innerHTML = ''
   bottomHeading.innerHTML = '<h2>yearly expenses</h2>'
   userTripsDisplay.innerHTML +=
@@ -97,8 +104,8 @@ const showEstimate = (session) => {
     let result = session.destinationObj.getTripCost(browser.value, numDays.value, guests.value)
     getEstimate.innerHTML =
     '<p class="estimate-calculation">Your estimate cost would be ' + '$' + result + '.</p>'
-    estimateButton.classList.add('hidden')
-    bookButton.classList.remove('hidden')
+    addHidden(estimateButton)
+    removeHidden(bookButton)
   }
 }
 
@@ -152,7 +159,7 @@ const formatDate = (date) => {
 }
 
 const addTripToPending = (location, date) => {
-  destinations.classList.add('hidden')
+  addHidden(destinations)
   destinationsSection.innerHTML += `
   <section class='trips-display'>
   <h4 class='trip-location'>${location}</h4>
@@ -173,4 +180,6 @@ export {
   greetUser,
   postTrip,
   bookingConfirmation,
+  addHidden,
+  removeHidden
 }

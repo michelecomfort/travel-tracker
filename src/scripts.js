@@ -30,7 +30,7 @@ import './images/Wellington-NewZealand.png'
 import './images/Bangkok-Thailand.png'
 
 import { fetchUserData, fetchData, postData} from './fetch'
-import { changeFormView, displayTrips, displayExpenses, addDestinationSearch, showEstimate, bookTrip, getDestinationID, formatDate, greetUser, postTrip, bookingConfirmation } from './domManipulation'
+import { changeFormView, displayTrips, displayExpenses, addDestinationSearch, showEstimate, bookTrip, getDestinationID, formatDate, greetUser, postTrip, bookingConfirmation, addHidden, removeHidden } from './domManipulation'
 import Session from './Session'
 
 const session = new Session()
@@ -72,7 +72,6 @@ function login() {
     retrieveAllData(loginID)
     toggleHidden(error)
     toggleHidden(loginForm)
-
   } else {
     error.innerHTML +=
     '<p class="login-message">Sorry, there is an error with your username and password. Please try again.</p>'
