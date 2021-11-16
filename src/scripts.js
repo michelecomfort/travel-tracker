@@ -1,7 +1,5 @@
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 import Glide from '@glidejs/glide';
-
 
 new Glide('.glide', {
   type: 'carousel',
@@ -13,7 +11,6 @@ new Glide('.glide', {
   keyboard: true,
 }).mount()
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/suitcase.png'
 import './images/Cape-Town-South-Africa.png'
 import './images/Madrid-Spain.png'
