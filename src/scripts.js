@@ -30,7 +30,7 @@ import './images/Wellington-NewZealand.png'
 import './images/Bangkok-Thailand.png'
 
 import { fetchUserData, fetchData, postData} from './fetch'
-import { changeFormView, displayTrips, displayExpenses, addDestinationSearch, showEstimate, bookTrip, getDestinationID, formatDate, greetUser} from './domManipulation'
+import { changeFormView, displayTrips, displayExpenses, addDestinationSearch, showEstimate, bookTrip, getDestinationID, formatDate, greetUser, postTrip } from './domManipulation'
 import Session from './Session'
 
 const session = new Session()
@@ -41,6 +41,7 @@ const userMenu = document.querySelector('#userMenu')
 const password = document.querySelector('#password')
 const error = document.querySelector('#error')
 const greeting = document.querySelector('#greeting')
+const bookButton = document.querySelector('#bookButton')
 
 loginButton.addEventListener('click', function() {
   login()
@@ -86,7 +87,6 @@ const parseData = (data) => {
   session.createDestinationsStorage(data[2].destinations)
   addDestinationSearch(session)
   greetUser(session)
-  // renderDom(session)
 }
 
 export {

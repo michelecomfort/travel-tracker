@@ -22,8 +22,8 @@ header {
 
 }
 
-img {
-  border-radius: 2%;
+.dest-image {
+  border-radius: 5px;
   max-height: 100%;
   max-width: 80%;
   min-height: 100%;
@@ -162,11 +162,35 @@ h3 {
   height: 42%;
   width: 95%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  overflow: scroll;
 }
 
+.user-trips-display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
 .trips-display {
-  color: red;
+  color: black;
+  display: grid;
+  // display: flex;
+  // flex-wrap: wrap;
+  margin-bottom: 20px;
+  // height: 185px;
+  text-align: center;
+
+}
+
+.trips-img {
+  // width: 30px;
+  height: 250px;
+  border-radius: 5px;
+  // max-height: 100%;
+  max-width: 80%;
+  // min-height: 100%;
+  min-width: 80%;
+  margin-left: 10%;
 }
 
 .hidden {
