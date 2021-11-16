@@ -11,7 +11,7 @@ export default class User {
 
   getTotalDollarSpentThisYear(session) {
     let result = session.userTripsData.reduce((acc, trip) => {
-      if(trip.date.includes('2021')) {
+      if(trip.date.includes('2021') && trip.status === 'approved') {
         session.destinationData.filter(dest => {
           if (trip.destinationID === dest.id) {
             acc += (trip.travelers * dest.estimatedFlightCostPerPerson) + (trip.duration * dest.estimatedLodgingCostPerDay)
