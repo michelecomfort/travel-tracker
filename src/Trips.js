@@ -11,9 +11,9 @@ export default class Trips {
       if (date2 < date1  && trip.status === 'approved') {
         return trip
       }
-  })
-  return result
-}
+    })
+    return result
+  }
 
   getUpcomingTrips(todayDate) {
     let date1 = new Date(todayDate)
@@ -28,8 +28,8 @@ export default class Trips {
 
   getPendingTrips() {
     let result = this.trips.filter(trip => {
-      return trip.status ==='pending'
+      return trip.status === 'pending'
     })
-      return result
+    return result
   }
 }

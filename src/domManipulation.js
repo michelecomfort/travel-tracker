@@ -11,12 +11,13 @@ const browser = document.querySelector('#browser')
 const getEstimate = document.querySelector('#getEstimate')
 const estimateButton = document.querySelector('#estimateButton')
 const bookButton = document.querySelector('#bookButton')
-const glider = document.querySelector('#gliderSection')
+// const glider = document.querySelector('#gliderSection')
 const startDate = document.querySelector('#startDate')
 const guests = document.querySelector('#guests')
 const numDays = document.querySelector('#numDays')
 const greeting = document.querySelector('#greeting')
 const userTripsDisplay = document.querySelector('#userTripsDisplay')
+const userMenu = document.querySelector('#userMenu')
 
 const removeHidden = (element) => {
   element.classList.remove('hidden')
@@ -84,7 +85,7 @@ const displayTrips = (session, trips, value) => {
 }
 
 const displayExpenses = (expenses) => {
-  addHidden(destinations)
+  addHidden(destinationsSection)
   removeHidden(userTripsDisplay)
   userTripsDisplay.innerHTML = ''
   bottomHeading.innerHTML = '<h2>yearly expenses</h2>'
@@ -138,15 +139,15 @@ const bookingConfirmation = () => {
   getEstimate.innerHTML =
   '<p class="estimate-calculation">Exciting! Your travel agent will review your trip shortly.</p>'
   setTimeout(() => {
-    getEstimate.innerHTML = ''
-    }, 4000)
-    toggleHidden(estimateButton)
+  getEstimate.innerHTML = ''
+  }, 4000)
+  toggleHidden(estimateButton)
     toggleHidden(bookButton)
 }
 
 const getDestinationID = (session) => {
   let result = session.destinationData.find(dest => {
-    if(dest.destination === browser.value) {
+    if (dest.destination === browser.value) {
       return dest
     }
   })
@@ -159,7 +160,7 @@ const formatDate = (date) => {
 }
 
 const addTripToPending = (location, date) => {
-  addHidden(destinations)
+  addHidden(destinationsSection)
   destinationsSection.innerHTML += `
   <section class='trips-display'>
   <h4 class='trip-location'>${location}</h4>

@@ -1,4 +1,4 @@
-import { traveler, trips, destinations } from '../src/sample-data'
+import { destinations } from '../src/sample-data'
 import { assert } from 'chai'
 import Destinations from '../src/Destinations'
 import Session from '../src/Session'

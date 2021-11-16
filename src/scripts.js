@@ -1,8 +1,7 @@
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 import Glide from '@glidejs/glide';
-import { Breakpoints } from '@glidejs/glide/dist/glide.modular.esm';
-// import Glide, { Breakpoints } from '@glidejs/glide/dist/glide.modular.esm';
+
 
 new Glide('.glide', {
   type: 'carousel',
@@ -42,6 +41,7 @@ const password = document.querySelector('#password')
 const error = document.querySelector('#error')
 const greeting = document.querySelector('#greeting')
 const bookButton = document.querySelector('#bookButton')
+const estimateButton = document.querySelector('#estimateButton')
 
 const destImage = document.querySelector('.glide__track')
 destImage.addEventListener('mouseover', function(event) {

@@ -5,8 +5,8 @@ export default class Destinations {
 
   getTripCost(location, duration, guests) {
     let result = this.destinations.reduce((acc, destination) => {
-      if (destination.destination === location){
-      acc += (destination.estimatedLodgingCostPerDay * duration) + (destination.estimatedFlightCostPerPerson * guests)
+      if (destination.destination === location) {
+        acc += (destination.estimatedLodgingCostPerDay * duration) + (destination.estimatedFlightCostPerPerson * guests)
       }
       return acc
     }, 0)

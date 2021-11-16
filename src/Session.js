@@ -19,9 +19,9 @@ export default class Session {
 
   createTripsStorage(tripsData) {
     this.allTripsData = tripsData
-      let trips = tripsData.filter(trip => {
-        return  trip.userID === this.user.id
-      })
+    let trips = tripsData.filter(trip => {
+      return  trip.userID === this.user.id
+    })
     this.userTripsObj = new Trips(trips)
     this.userTripsData = this.userTripsObj.trips
     return this.userTripsData
