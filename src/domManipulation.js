@@ -1,8 +1,9 @@
 import { postData } from './fetch';
-import { retrieveAllData } from './scripts';
+import { retrieveAllData, toggleHidden } from './scripts';
 //
 const tripView = document.querySelector('#tripView')
 const todayDate = new Date().toISOString().slice(0, 10).replaceAll('-', '/')
+const bookTripBar = document.querySelector('#bookTripBar')
 const destinationsSection = document.querySelector('#destinations')
 const bottomHeading = document.querySelector('#bottomHeading')
 const browsers = document.querySelector('#browsers')
@@ -14,6 +15,18 @@ const glider = document.querySelector('#gliderSection')
 const startDate = document.querySelector('#startDate')
 const guests = document.querySelector('#guests')
 const numDays = document.querySelector('#numDays')
+const greeting = document.querySelector('#greeting')
+const userTripsDisplay = document.querySelector('#userTripsDisplay')
+
+
+const greetUser = (session) => {
+  let name = session.user.returnFirstName()
+  greeting.innerHTML =
+  '<h2>welcome back ' + name + '.</h2>'
+userMenu.classList.remove('hidden')
+  bookTripBar.classList.remove('hidden')
+}
+
 
 ////my account menu
 const changeFormView = (session) => {
@@ -41,32 +54,37 @@ const changeFormView = (session) => {
 }
 
 const displayTrips = (session, trips, value) => {
+  userTripsDisplay.classList.remove('hidden')
   if (trips.length > 0) {
     bottomHeading.innerHTML =
-    '<h2>my ' + value + ' trips</h2>'
-    destinationsSection.innerHTML = ''
+    '<h3>my ' + value + ' trips</h3>'
+    destinations.classList.add('hidden')
+    userTripsDisplay.innerHTML = ''
     trips.forEach(trip => {
       session.destinationData.forEach(dest => {
         if (trip.destinationID === dest.id) {
-          destinationsSection.innerHTML += `
+          userTripsDisplay.innerHTML += `
           <section class='trips-display'>
+          <img class='trips-img'src='${dest.image}'>
           <h4>${dest.destination}</h4>
           <p>${trip.date}</p>
-          </section>  `
+          </section>`
         }
       })
     })
   } else {
-    bottomHeading.innerHTML = '<p>You have no ' + value + ' trips at this time.</p>'
-    destinationsSection.innerHTML = ''
+    bottomHeading.innerHTML = '<h3>You have no ' + value + ' trips at this time.</h3>'
+    userTripsDisplay.innerHTML = ''
   }
 }
 
 const displayExpenses = (expenses) => {
-  destinationsSection.innerHTML = ''
+  destinations.classList.add('hidden')
+  userTripsDisplay.classList.remove('hidden')
+  userTripsDisplay.innerHTML = ''
   bottomHeading.innerHTML = '<h2>Yearly Expenses</h2>'
-  destinationsSection.innerHTML +=
-  '<h4>This year you have spent a total of $' + expenses + ' on fun excursions!</h4>'
+  userTripsDisplay.innerHTML +=
+  '<h3>This year you have spent a total of $' + expenses + ' on fun excursions!</h3>'
 }
 
 ///////book trip section
@@ -98,13 +116,17 @@ const bookTrip = (session) => {
     status: 'pending',
     suggestedActivities: []
   }
-    postData(bookTripData).then(() => {
-      retrieveAllData(session.user.id).then(() => {
-        let pending = session.userTripsObj.getPendingTrips()
-        displayTrips(session, pending, tripView.value)
-      })
-    }
-  )
+  postTrip(bookTripData, session)
+}
+
+const postTrip = (data, session) => {
+  postData(data).then(() => {
+    retrieveAllData(session.user.id).then(() => {
+      let pending = session.userTripsObj.getPendingTrips()
+      displayTrips(session, pending, 'pending')
+      tripView.value = 'pending'
+    })
+  })
 }
 
 const getDestinationID = (session) => {
@@ -122,7 +144,7 @@ const formatDate = (date) => {
 }
 
 const addTripToPending = (location, date) => {
-  glider.classList.add('hidden')
+  destinations.classList.add('hidden')
   destinationsSection.innerHTML += `
   <section class='trips-display'>
   <h4>${location}</h4>
@@ -139,5 +161,7 @@ export {
   bookTrip,
   getDestinationID,
   formatDate,
-  addTripToPending
+  addTripToPending,
+  greetUser,
+  postTrip
 }
