@@ -125,8 +125,19 @@ const postTrip = (data, session) => {
       let pending = session.userTripsObj.getPendingTrips()
       displayTrips(session, pending, 'pending')
       tripView.value = 'pending'
+      bookingConfirmation();
     })
   })
+}
+
+const bookingConfirmation = () => {
+  getEstimate.innerHTML =
+  '<p class="estimate-calculation">Exciting! Your travel agent will review your trip shortly.</p>'
+  setTimeout(() => {
+    getEstimate.innerHTML = ''
+    }, 4000);
+    toggleHidden(estimateButton)
+    toggleHidden(bookButton)
 }
 
 const getDestinationID = (session) => {
