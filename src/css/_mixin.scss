@@ -1,0 +1,12 @@
+@mixin width($width) {
+  width: $width;
+}
+
+@mixin flex($flex-direction) {
+  display: flex;
+  flex-direction: $flex-direction;
+}
+
+@mixin border-radius($weight) {
+  border-radius: $weight;
+}

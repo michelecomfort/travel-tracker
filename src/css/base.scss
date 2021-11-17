@@ -1,6 +1,240 @@
 /* This is an example of how to import a partial scss file*/
 @import '_variables';
+@import '_mixin';
+
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
 
 body {
-  background: $primary-background;
+  font-family: 'Comfortaa';
+}
+
+* {
+  margin: 0;
+}
+
+header {
+  background-image: url('../images/suitcase.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+}
+
+.login-message {
+  @include width(50%)
+}
+
+.login-message,
+.days,
+.guests,
+.start-date,
+.destination-dropdown,
+.user-name,
+.password,
+.trip-type,
+.bottom-title,
+.trips-display,
+.expenses-message {
+  text-align: center;
+}
+
+.top-nav,
+.travel-title,
+.login,
+.trips-view,
+.book-getaway-heading,
+.book-trip,
+.estimate-calculation,
+.destinations {
+  @include flex(row)
+}
+
+.top-nav {
+  flex-direction: row;
+  justify-content: space-between;
+
+  .travel-title {
+    color: $deepGreen;
+    font-size: 60px;
+    margin: 5% 0 0 8%;
+  }
+}
+
+.login-container {
+  display:flex;
+  flex-direction: column;
+  margin-left: 60px;
+  @include width(80%);
+
+  .login {
+    flex-direction: row;
+    height: 30px;
+    margin: 2% 0 0 10%;
+  }
+}
+
+.greeting {
+  margin-top: 3%;
+  @include width(35%)
+}
+
+.trips-view {
+  height: 40px;
+  margin: 2% 4% 0 0;
+  @include width(10%)
+}
+
+.book-getaway-heading {
+  color: $deepGreen;
+  font-size: 22px;
+  margin: 4% 0 2% 6%;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  @include width(174px);
+}
+
+.book-trip {
+  background-color: #D3EFE9;
+  border-radius: 30px;
+  flex-wrap: wrap;
+  margin-left: 2%;
+  padding: 1.5%;
+  @include width(50%);
+
+  .start-date,
+  .destination-dropdown {
+    height: 38px;
+    min-width: 30%;
+    @include width(180px);
+  }
+
+  .days,
+  .guests {
+    @include width(54px);
+  }
+
+  .estimate-button {
+    height: 50%;
+    @include width(78px);
+  }
+
+  .book-button {
+    height: 50%;
+    @include width(10%);
+  }
+}
+
+.days,
+.guests,
+.start-date,
+.destination-dropdown,
+.user-name,
+.password,
+.trip-type {
+  border: none;
+  margin: 3px;
+  @include border-radius(6px);
+}
+
+.estimate-calculation {
+  font-size: larger;
+  margin: 1% 0 0 18%;
+  padding: 0% 1% 1%;
+}
+
+.button,
+.login-button {
+  background-color: $magenta;
+  border: none;
+  color: $white;
+  font-weight: 700;
+  line-height: 18px;
+  margin-left: 4%;
+  padding: .7% 2%;
+  @include border-radius(6px)
+}
+
+.button:hover {
+  background-color: $white;
+  color: $magenta;
+}
+
+.bottom-title {
+  font-size: 15;
+  padding: 1%;
+}
+
+.destinations {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dest-image {
+  margin-left: 11%;
+  max-height: 80%;
+  max-width: 80%;
+  min-height: 60%;
+  min-width: 80%;
+  @include border-radius(5px);
+}
+
+.img-description {
+  margin-left: 35%;
+}
+
+.dest-name-hidden {
+  margin-left: 10px;
+  visibility: hidden;
+}
+
+.user-trips-display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  .trips-display {
+    color: black;
+    display: grid;
+    margin-bottom: 20px;
+  }
+
+  .trip-location,
+  .trip-date {
+    margin-top: 6px;
+  }
+
+  .trips-img {
+    height: 250px;
+    margin-left: 10%;
+    max-width: 80%;
+    min-width: 80%;
+    @include border-radius(5px)
+  }
+}
+
+.expenses-message {
+  margin-left: 97%;
+  @include width(100%)
+}
+
+.hidden {
+  display:none;
+}
+
+@media screen and (min-width: 1990px) {
+  .user-trips-display {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .user-trips-display  {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .user-trips-display  {
+    grid-template-columns: 1fr;
+  }
 }
