@@ -1,4 +1,4 @@
-# Travel Tracker
+# ✈️ Travel Tracker
 
 Turing School of Software & Design
 
