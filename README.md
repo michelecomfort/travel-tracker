@@ -7,6 +7,17 @@ Turing School of Software & Design
 ## Abstract
 Travel Tracker is a web app that allows users to interact with a travel agent to view their trips both past and present, as well as book new trips. They have a single dashboard that they log into with their credentials which then allows them to browse through 50 destinations and decide if they want to request a new trip.
 
+### Login Section
+![login](https://user-images.githubusercontent.com/86859884/142082351-9377accc-1965-4c42-9ee3-eb6a655d2a95.gif))
+### Destinations Navigation
+![destination-navigation](https://user-images.githubusercontent.com/86859884/142082763-6ecbf4b8-13d8-4fbc-90a9-8cbf09c767b3.gif)
+### User Menu View
+![usermenu-navigation](https://user-images.githubusercontent.com/86859884/142083057-57a5e08b-fee5-41a8-add3-2b5aa0df02b6.gif)
+### Book New Trip
+![book-trip](https://user-images.githubusercontent.com/86859884/142083201-9d4b7eca-55ec-4760-831a-ea05a70811ac.gif)
+### Responsive Screen Size
+![responsive-sizing](https://user-images.githubusercontent.com/86859884/142083562-31f585ee-06a5-4d57-9f20-bda9697ee8ea.gif)
+
 ## Languages | Technologies
 - JavaScript
 - HTML
@@ -33,16 +44,7 @@ Travel Tracker is a web app that allows users to interact with a travel agent to
 6. If they choose to book the trip, they can click the 'book-it' button which will send the travel request to the local api for the travel agent
 7. The page will immediately move to the user's pending trips section
 
-### Login Section
-![login](https://user-images.githubusercontent.com/86859884/142082351-9377accc-1965-4c42-9ee3-eb6a655d2a95.gif))
-### Destinations Navigation
-![destination-navigation](https://user-images.githubusercontent.com/86859884/142082763-6ecbf4b8-13d8-4fbc-90a9-8cbf09c767b3.gif)
-### User Menu View
-![usermenu-navigation](https://user-images.githubusercontent.com/86859884/142083057-57a5e08b-fee5-41a8-add3-2b5aa0df02b6.gif)
-### Book New Trip
-![book-trip](https://user-images.githubusercontent.com/86859884/142083201-9d4b7eca-55ec-4760-831a-ea05a70811ac.gif)
-### Responsive Screen Size
-![responsive-sizing](https://user-images.githubusercontent.com/86859884/142083562-31f585ee-06a5-4d57-9f20-bda9697ee8ea.gif)
+
 ## Future Improvements
 1. Destination photos will be added dynamically
 2. Users will be able to choose a photo to begin their booking
